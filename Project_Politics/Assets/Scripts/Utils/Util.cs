@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class Util
 {
+    public static T GetOrAddComponent<T>(GameObject go) where T : UnityEngine.Component
+    {
+        T component = go.GetComponent<T>();
+        if (component == null)
+            component = go.AddComponent<T>();
+        return component;
+    }
+
     /// <summary>
     /// 하위 오브젝트 중 특정 이름 혹은 컴포넌트를 가진 오브젝트를 찾습니다.
     /// </summary>
