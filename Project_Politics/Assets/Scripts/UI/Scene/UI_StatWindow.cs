@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UI_StatWindow : UI_Base
+public class UI_StatWindow : UI_Scene
 {
     enum Buttons
     {
@@ -42,7 +42,7 @@ public class UI_StatWindow : UI_Base
         for (int i = 0; i < _objects[typeof(Button)].Length; i++)
         {
             Action<PointerEventData> action = ((PointerEventData eventData) => OnClickButton(eventData));
-            AddUIEvent(GetButton(i).gameObject, action);
+            BindEvent(GetButton(i).gameObject, action);
         }
     }
 
@@ -61,7 +61,7 @@ public class UI_StatWindow : UI_Base
     {
         int idx = new int();
 
-        // Enum 대체 왜 String으로 안 바뀌는 거임?! 이해할 수 X
+        // Enum 대체 왜 string으로 안 바뀌는 거임?! 이해할 수 X
         switch (eventData.pointerClick.name)
         {
             case "PassionUpButton":
