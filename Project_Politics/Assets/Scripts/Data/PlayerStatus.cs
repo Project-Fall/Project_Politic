@@ -4,7 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class PlayerStatus
+public class PlayerStatus : MonoBehaviour
 {
-
+    private void Start()
+    {
+        Managers.UI.ShowScene<UI_StatWindow>();
+    }
 }
