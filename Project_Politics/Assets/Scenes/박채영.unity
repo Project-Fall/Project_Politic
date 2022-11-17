@@ -361,11 +361,10 @@ GameObject:
   - component: {fileID: 417656299}
   - component: {fileID: 417656298}
   - component: {fileID: 417656297}
-  - component: {fileID: 417656300}
   - component: {fileID: 417656302}
   - component: {fileID: 417656301}
   m_Layer: 0
-  m_Name: Passion
+  m_Name: PassionUpButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -474,18 +473,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 417656295}
   m_CullTransparentMesh: 1
---- !u!114 &417656300
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 417656295}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acc24b65f00dc4544b776fcbf7a312b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &417656301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -774,7 +761,7 @@ GameObject:
   - component: {fileID: 788762319}
   - component: {fileID: 788762323}
   m_Layer: 0
-  m_Name: Canvas
+  m_Name: UI_StatusWindow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -872,9 +859,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 788762318}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 086fe8b29058a0342a13e5a9c781f988, type: 3}
+  m_Script: {fileID: 11500000, guid: 458e369989bcab44c94d4e45454d2f8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _status: 0000000000000000000000000000000000000000
 --- !u!1 &907699034
 GameObject:
   m_ObjectHideFlags: 0
@@ -887,11 +875,10 @@ GameObject:
   - component: {fileID: 907699038}
   - component: {fileID: 907699037}
   - component: {fileID: 907699036}
-  - component: {fileID: 907699039}
   - component: {fileID: 907699041}
   - component: {fileID: 907699040}
   m_Layer: 0
-  m_Name: Charisma
+  m_Name: CharismaUpButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1000,18 +987,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 907699034}
   m_CullTransparentMesh: 1
---- !u!114 &907699039
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 907699034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acc24b65f00dc4544b776fcbf7a312b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &907699040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1140,7 +1115,7 @@ GameObject:
   - component: {fileID: 941033562}
   - component: {fileID: 941033561}
   m_Layer: 0
-  m_Name: Score
+  m_Name: LeadershipScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1220,7 +1195,7 @@ GameObject:
   - component: {fileID: 1009995269}
   - component: {fileID: 1009995268}
   m_Layer: 0
-  m_Name: Score
+  m_Name: PassionScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1345,7 +1320,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1381,11 +1356,10 @@ GameObject:
   - component: {fileID: 1081551343}
   - component: {fileID: 1081551342}
   - component: {fileID: 1081551341}
-  - component: {fileID: 1081551344}
   - component: {fileID: 1081551346}
   - component: {fileID: 1081551345}
   m_Layer: 0
-  m_Name: Sympathy
+  m_Name: SympathyUpButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1494,18 +1468,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1081551339}
   m_CullTransparentMesh: 1
---- !u!114 &1081551344
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1081551339}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acc24b65f00dc4544b776fcbf7a312b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1081551345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1719,7 +1681,6 @@ GameObject:
   - component: {fileID: 1099196921}
   - component: {fileID: 1099196923}
   - component: {fileID: 1099196922}
-  - component: {fileID: 1099196924}
   m_Layer: 0
   m_Name: Scores
   m_TagString: Untagged
@@ -1790,24 +1751,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1099196920}
   m_CullTransparentMesh: 1
---- !u!114 &1099196924
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1099196920}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 458e369989bcab44c94d4e45454d2f8b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Scores:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!1 &1118799537
 GameObject:
   m_ObjectHideFlags: 0
@@ -1819,6 +1762,7 @@ GameObject:
   - component: {fileID: 1118799538}
   - component: {fileID: 1118799540}
   - component: {fileID: 1118799539}
+  - component: {fileID: 1118799542}
   m_Layer: 0
   m_Name: Text (Legacy)
   m_TagString: Untagged
@@ -1860,7 +1804,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1888,6 +1832,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1118799537}
   m_CullTransparentMesh: 1
+--- !u!223 &1118799542
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1118799537}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1 &1258524005
 GameObject:
   m_ObjectHideFlags: 0
@@ -1899,6 +1864,7 @@ GameObject:
   - component: {fileID: 1258524006}
   - component: {fileID: 1258524008}
   - component: {fileID: 1258524007}
+  - component: {fileID: 1258524010}
   m_Layer: 0
   m_Name: Text (Legacy)
   m_TagString: Untagged
@@ -1940,7 +1906,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1968,6 +1934,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1258524005}
   m_CullTransparentMesh: 1
+--- !u!223 &1258524010
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1258524005}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1 &1493979502
 GameObject:
   m_ObjectHideFlags: 0
@@ -1979,6 +1966,7 @@ GameObject:
   - component: {fileID: 1493979503}
   - component: {fileID: 1493979505}
   - component: {fileID: 1493979504}
+  - component: {fileID: 1493979507}
   m_Layer: 0
   m_Name: Text (Legacy)
   m_TagString: Untagged
@@ -2020,7 +2008,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -2048,6 +2036,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1493979502}
   m_CullTransparentMesh: 1
+--- !u!223 &1493979507
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1493979502}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1 &1515223945
 GameObject:
   m_ObjectHideFlags: 0
@@ -2060,7 +2069,7 @@ GameObject:
   - component: {fileID: 1515223948}
   - component: {fileID: 1515223947}
   m_Layer: 0
-  m_Name: Score
+  m_Name: TongueScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2140,7 +2149,7 @@ GameObject:
   - component: {fileID: 1518930760}
   - component: {fileID: 1518930759}
   m_Layer: 0
-  m_Name: Score
+  m_Name: CharismaScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2219,6 +2228,7 @@ GameObject:
   - component: {fileID: 1629861978}
   - component: {fileID: 1629861980}
   - component: {fileID: 1629861979}
+  - component: {fileID: 1629861982}
   m_Layer: 0
   m_Name: Text (Legacy)
   m_TagString: Untagged
@@ -2260,7 +2270,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -2288,6 +2298,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1629861977}
   m_CullTransparentMesh: 1
+--- !u!223 &1629861982
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1629861977}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1 &1631760623
 GameObject:
   m_ObjectHideFlags: 0
@@ -2458,11 +2489,10 @@ GameObject:
   - component: {fileID: 1965492098}
   - component: {fileID: 1965492097}
   - component: {fileID: 1965492096}
-  - component: {fileID: 1965492099}
   - component: {fileID: 1965492101}
   - component: {fileID: 1965492100}
   m_Layer: 0
-  m_Name: Leadership
+  m_Name: LeadershipUpButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2571,18 +2601,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1965492094}
   m_CullTransparentMesh: 1
---- !u!114 &1965492099
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1965492094}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acc24b65f00dc4544b776fcbf7a312b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1965492100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2633,11 +2651,10 @@ GameObject:
   - component: {fileID: 2062430784}
   - component: {fileID: 2062430783}
   - component: {fileID: 2062430782}
-  - component: {fileID: 2062430785}
   - component: {fileID: 2062430787}
   - component: {fileID: 2062430786}
   m_Layer: 0
-  m_Name: Tongue
+  m_Name: TongueUpButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2746,18 +2763,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2062430780}
   m_CullTransparentMesh: 1
---- !u!114 &2062430785
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2062430780}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acc24b65f00dc4544b776fcbf7a312b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2062430786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2807,6 +2812,7 @@ GameObject:
   - component: {fileID: 2076936107}
   - component: {fileID: 2076936109}
   - component: {fileID: 2076936108}
+  - component: {fileID: 2076936111}
   m_Layer: 0
   m_Name: Text (Legacy)
   m_TagString: Untagged
@@ -2848,7 +2854,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -2876,6 +2882,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2076936106}
   m_CullTransparentMesh: 1
+--- !u!223 &2076936111
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2076936106}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1 &2081214103
 GameObject:
   m_ObjectHideFlags: 0
@@ -2888,7 +2915,7 @@ GameObject:
   - component: {fileID: 2081214106}
   - component: {fileID: 2081214105}
   m_Layer: 0
-  m_Name: Score
+  m_Name: SympathyScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

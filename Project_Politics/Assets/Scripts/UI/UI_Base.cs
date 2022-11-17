@@ -12,13 +12,9 @@ public class UI_Base : MonoBehaviour
 {
     protected Dictionary<Type, UnityEngine.Object[]> _objects = new Dictionary<Type, UnityEngine.Object[]>();
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <param name="type"></param>
     protected void Bind<T>(Type type) where T : UnityEngine.Object
     {
+        // 현재 이름이 Enum 타입으로 넘어올 때만 가능함 (수정 예정)
         string[] names = Enum.GetNames(type);
         UnityEngine.Object[] objects = new UnityEngine.Object[names.Length];
         _objects.Add(typeof(T), objects);
