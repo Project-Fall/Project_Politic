@@ -9,4 +9,10 @@ public class Define
         Click,
         Drag,
     }
+
+    public enum Scene
+    {
+        Main,
+        Battle,
+    }
 }

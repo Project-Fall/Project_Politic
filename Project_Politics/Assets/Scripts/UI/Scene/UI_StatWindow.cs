@@ -14,6 +14,7 @@ public class UI_StatWindow : UI_Scene
         SympathyUpButton,
         LeadershipUpButton,
         TongueUpButton,
+        ToBattleButton,
     }
 
     enum Scores
@@ -39,11 +40,15 @@ public class UI_StatWindow : UI_Scene
         UpdateAllScore();
 
         // 버튼이랑 status 올리는 Action 연결
-        for (int i = 0; i < _objects[typeof(Button)].Length; i++)
+        for (int i = 0; i < (int)Buttons.TongueUpButton; i++)
         {
             Action<PointerEventData> action = ((PointerEventData eventData) => OnClickButton(eventData));
             BindEvent(GetButton(i).gameObject, action);
         }
+
+        // Battle 버튼을 누르면 Battle Scene으로
+        BindEvent(GetButton((int)Buttons.ToBattleButton).gameObject,
+            (PointerEventData eventData) => Managers.Scene.LoadScene(Define.Scene.Battle));
     }
 
     private void UpdateAllScore()

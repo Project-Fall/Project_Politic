@@ -13,15 +13,18 @@ public class Managers : MonoBehaviour
     private UIManager _ui = new UIManager();
     public static UIManager UI { get { return Instance._ui; } }
 
+    private SceneManagerEX _scene = new SceneManagerEX();
+    public static SceneManagerEX Scene { get { return Instance._scene; } }
+
     private static void Init()
     {
         if(s_instance == null)
         {
-            GameObject go = GameObject.Find("GameManager");
+            GameObject go = GameObject.Find("@GameManager");
             
             if(go == null)
             {
-                go = new GameObject("GameManager");
+                go = new GameObject("@GameManager");
                 go.AddComponent<Managers>();
             }
 
