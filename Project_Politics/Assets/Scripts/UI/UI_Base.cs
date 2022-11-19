@@ -12,13 +12,9 @@ public class UI_Base : MonoBehaviour
 {
     protected Dictionary<Type, UnityEngine.Object[]> _objects = new Dictionary<Type, UnityEngine.Object[]>();
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <param name="type"></param>
     protected void Bind<T>(Type type) where T : UnityEngine.Object
     {
+        // 현재 이름이 Enum 타입으로 넘어올 때만 가능함 (수정 예정)
         string[] names = Enum.GetNames(type);
         UnityEngine.Object[] objects = new UnityEngine.Object[names.Length];
         _objects.Add(typeof(T), objects);
@@ -47,13 +43,14 @@ public class UI_Base : MonoBehaviour
         return objects[idx] as T;
     }
 
+    protected GameObject GetObject(int idx) { return Get<GameObject>(idx); }
     protected Text GetText(int idx) { return Get<Text>(idx); }
     protected Button GetButton(int idx) { return Get<Button>(idx); }
     protected Image GetImage(int idx) { return Get<Image>(idx); }
 
-    protected void AddUIEvent(GameObject go, Action<PointerEventData> action, Define.UIEvent type = Define.UIEvent.Click)
+    protected void BindEvent(GameObject go, Action<PointerEventData> action, Define.UIEvent type = Define.UIEvent.Click)
     {
-        UI_EventHandler evt = Util.GetOrAddComponent<UI_EventHandler>(go);
+        UI_EventHandler evt = go.GetOrAddComponent<UI_EventHandler>();
         switch (type)
         {
             case Define.UIEvent.Click:

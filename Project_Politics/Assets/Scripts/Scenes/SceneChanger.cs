@@ -15,8 +15,7 @@ public class SceneChanger : MonoBehaviour
 
     public void SceneChange(Scene nextName)
     {
-        string next = "Scenes/" + nextName.ToString();
-        StartCoroutine(WaitForSceneChange(next));
+        StartCoroutine(WaitForSceneChange($"Scenes/{nextName.ToString()}"));
         _currentScene = nextName;
     }
 
@@ -26,7 +25,7 @@ public class SceneChanger : MonoBehaviour
         SceneManager.LoadScene(next);
     }
 
-    // ÀÓ½Ã·Î ³Ñ¾î°¡´Â ¹öÆ°¿¡ »ç¿ë
+    // ì„ì‹œë¡œ ë„˜ì–´ê°€ëŠ” ë²„íŠ¼ì— ì‚¬ìš©
     public void OnclickButton()
     {
         SceneChange(Scene.BattleScene);
