@@ -15,4 +15,11 @@ public class Define
         Main,
         Battle,
     }
+
+    public enum Sound
+    {
+        Bgm,
+        Effect,
+        MaxCount,
+    }
 }
