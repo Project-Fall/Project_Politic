@@ -16,6 +16,12 @@ public class Managers : MonoBehaviour
     private SceneManagerEX _scene = new SceneManagerEX();
     public static SceneManagerEX Scene { get { return Instance._scene; } }
 
+    private SoundManager _sound = new SoundManager();
+    public static SoundManager Sound { get { return Instance._sound; } }
+
+
+
+
     private static void Init()
     {
         if(s_instance == null)
