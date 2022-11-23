@@ -41,6 +41,7 @@ public class UIManager
 
         GameObject go = Managers.Resource.Instantiate($"UI/Scene/{name}", Root.transform);
         T scene = go.GetOrAddComponent<T>();
+        SetCanvas(go, false);
 
         return scene;
     }

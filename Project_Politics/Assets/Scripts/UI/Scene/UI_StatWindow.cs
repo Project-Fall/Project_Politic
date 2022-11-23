@@ -1,7 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -27,6 +24,7 @@ public class UI_StatWindow : UI_Scene
     }
 
     // 임시
+
     public int[] _status = { 10, 10, 10, 10, 10 };
     public int _upFigure = 1;
 
@@ -40,7 +38,7 @@ public class UI_StatWindow : UI_Scene
         UpdateAllScore();
 
         // 버튼이랑 status 올리는 Action 연결
-        for (int i = 0; i < (int)Buttons.TongueUpButton; i++)
+        for (int i = 0; i <= (int)Buttons.TongueUpButton; i++)
         {
             Action<PointerEventData> action = ((PointerEventData eventData) => OnClickButton(eventData));
             BindEvent(GetButton(i).gameObject, action);
