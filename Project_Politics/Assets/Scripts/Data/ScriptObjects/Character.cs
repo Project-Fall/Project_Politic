@@ -1,7 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ScriptableObjects", menuName = "ScriptableObject/Stat Data")]
+[CreateAssetMenu(fileName = "ScriptableObjects", menuName = "ScriptableObject/Character")]
 public class Character : ScriptableObject
 {
     // (후보자) 이름
