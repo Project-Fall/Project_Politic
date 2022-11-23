@@ -18,6 +18,9 @@ public class Managers : MonoBehaviour
 
     private SoundManager _sound = new SoundManager();
     public static SoundManager Sound { get { return Instance._sound; } }
+    
+    private DataManager _data = new DataManager();
+    public static DataManager Data { get { return Instance._data; } }
 
 
 
