@@ -10,6 +10,6 @@ public class UI_BattleStart : UI_Scene
 
     void Start()
     {
-        BindEvent(Util.FindChild(gameObject, "BattleStartButton"), ButtonAction);
+        BindEvent(Util.FindChild(transform.GetChild(0).gameObject, "BattleStartButton"), ButtonAction);
     }
 }

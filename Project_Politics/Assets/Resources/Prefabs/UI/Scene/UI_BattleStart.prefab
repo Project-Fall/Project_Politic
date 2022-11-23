@@ -274,7 +274,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cecd59033b718514e84b91c0e3421e00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BattleStartButton: {fileID: 2413337559037274136}
 --- !u!1 &1331913469037037586
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,13 +1,17 @@
 using UnityEditor;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ScriptableObjects", menuName = "ScriptableObject/Stat Data")]
+[CreateAssetMenu(fileName = "ScriptableObjects", menuName = "ScriptableObject/Character")]
 public class Character : ScriptableObject
 {
     // (후보자) 이름
     [SerializeField] private string _candidateName;
     public string Name { get { return _candidateName; } }
-    
+
+    // 나이
+    [SerializeField] private int _age;
+    public int Age { get { return _age; } }
+
     // 열정 카리스마 공감 리더십 말빨
     [SerializeField] private int[] _stat = new int[5];
     public int[] Stat { get { return _stat; } }
