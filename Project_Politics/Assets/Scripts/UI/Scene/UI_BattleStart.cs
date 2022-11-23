@@ -1,13 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class UI_BattleStart : UI_Scene
 {
-    public UI_CandidateInfo[] LeftAndRight = new UI_CandidateInfo[2];
+    // Battle Scene에서
+    public Action<PointerEventData> ButtonAction;
 
     void Start()
     {
-
+        BindEvent(Util.FindChild(gameObject, "BattleStartButton"), ButtonAction);
     }
 }

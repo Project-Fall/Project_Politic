@@ -11,6 +11,7 @@ public class UI_CandidateInfo : UI_Scene
         Image,
         PoliticalParty,
         Name,
+        Awareness,
     }
 
     public Character Candidate;
@@ -19,8 +20,16 @@ public class UI_CandidateInfo : UI_Scene
     {
         Bind<GameObject>(typeof(Components));
 
-        GetObject((int)Components.Image).GetComponent<SpriteRenderer>().sprite = Candidate.Image;
-        GetObject((int)Components.PoliticalParty).GetComponent<Text>().text = Candidate.PoliticalParty;
-        GetObject((int)Components.Name).GetComponent<Text>().text = Candidate.Name;
+        if (GetObject((int)Components.Image) != null)
+            GetObject((int)Components.Image).GetComponent<Image>().sprite = Candidate.Image;
+
+        if(GetObject((int)Components.PoliticalParty) != null)
+            GetObject((int)Components.PoliticalParty).GetComponent<Text>().text = Candidate.PoliticalParty;
+
+        if(GetObject((int)Components.Name) != null)
+            GetObject((int)Components.Name).GetComponent<Text>().text = Candidate.Name;
+
+        if(GetObject((int)Components.Awareness) != null)
+            GetObject((int)Components.Awareness).GetComponent<Text>().text = Candidate.Awareness.ToString();
     }
 }
