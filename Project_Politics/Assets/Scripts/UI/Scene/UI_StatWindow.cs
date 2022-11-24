@@ -35,6 +35,9 @@ public class UI_StatWindow : UI_Scene
     [SerializeField] private int[] _stat = { 10, 10, 10, 10, 10 };
     [SerializeField] private int _upFigure = 1;
     private DateTime _currentDate = new DateTime(2024, 6, 1);
+    [SerializeField] private GameData _data;
+
+
     private int _awareness { get {
             int result = 0;
             foreach (int i in _stat)
@@ -61,10 +64,7 @@ public class UI_StatWindow : UI_Scene
 
         // Battle 버튼을 누르면 Battle Scene으로
         Button toBattle = GetButton((int)Buttons.ToBattleButton);
-        BindEvent(toBattle.gameObject, (PointerEventData eventData) => {
-            if (!toBattle.interactable) return; // 이벤트 핸들러에 추가 예정
-            Managers.Scene.LoadScene(Define.Scene.Battle);
-        });
+        BindEvent(toBattle.gameObject, (PointerEventData eventData) => Managers.Scene.LoadScene(Define.Scene.Battle));
         toBattle.interactable = false;
 
         // 24년 6월을 가정
@@ -93,9 +93,6 @@ public class UI_StatWindow : UI_Scene
 
     private void OnClickButton(PointerEventData eventData)
     {
-        if (eventData.pointerClick.GetComponent<Button>().interactable == false)
-            return;
-
         int idx = new int();
 
         // Enum 대체 왜 string으로 안 바뀌는 거임?! 이해할 수 X
