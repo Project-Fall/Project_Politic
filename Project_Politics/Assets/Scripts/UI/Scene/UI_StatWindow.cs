@@ -32,15 +32,7 @@ public class UI_StatWindow : UI_Scene
     }
 
     // 임시
-    [SerializeField] private int[] _stat = { 10, 10, 10, 10, 10 };
     [SerializeField] private int _upFigure = 1;
-    private DateTime _currentDate = new DateTime(2024, 6, 1);
-    private int _awareness { get {
-            int result = 0;
-            foreach (int i in _stat)
-                result += i;
-            return result;
-        } }
 
     void Start()
     {
@@ -61,17 +53,14 @@ public class UI_StatWindow : UI_Scene
 
         // Battle 버튼을 누르면 Battle Scene으로
         Button toBattle = GetButton((int)Buttons.ToBattleButton);
-        BindEvent(toBattle.gameObject, (PointerEventData eventData) => {
-            if (!toBattle.interactable) return; // 이벤트 핸들러에 추가 예정
-            Managers.Scene.LoadScene(Define.Scene.Battle);
-        });
+        BindEvent(toBattle.gameObject, (PointerEventData eventData) => Managers.Scene.LoadScene(Define.Scene.Battle));
         toBattle.interactable = false;
 
-        // 24년 6월을 가정
-        GetObject((int)Infos.CurrentDate).GetComponent<Text>().text = _currentDate.ToString("yyyy-MM");
+        // 날짜
+        GetObject((int)Infos.CurrentDate).GetComponent<Text>().text = Managers.Data.GameData.GetDate();
 
         // 인지도
-        GetObject((int)Infos.Awareness).GetComponent<Text>().text = $"인지도 : {_awareness}";
+        GetObject((int)Infos.Awareness).GetComponent<Text>().text = $"인지도 : {Managers.Data.Player.Awareness}";
     }
 
     private void UpdateAllScore()
@@ -82,7 +71,7 @@ public class UI_StatWindow : UI_Scene
 
     private void UpdateScore(int idx)
     {
-        GetText(idx).text = _stat[idx].ToString();
+        GetText(idx).text = Managers.Data.Player.Stat[idx].ToString();
     }
 
     private void ChangeButtonState(bool b)
@@ -93,9 +82,6 @@ public class UI_StatWindow : UI_Scene
 
     private void OnClickButton(PointerEventData eventData)
     {
-        if (eventData.pointerClick.GetComponent<Button>().interactable == false)
-            return;
-
         int idx = new int();
 
         // Enum 대체 왜 string으로 안 바뀌는 거임?! 이해할 수 X
@@ -118,20 +104,20 @@ public class UI_StatWindow : UI_Scene
                 break;
         }
 
-        _stat[idx] += _upFigure;
+        Managers.Data.Player.Stat[idx] += _upFigure;
         UpdateScore(idx);
 
         // 날짜 변경, UI 적용
-        _currentDate = _currentDate.AddMonths(1);
-        GetObject((int)Infos.CurrentDate).GetComponent<Text>().text = _currentDate.ToString("yyyy-MM");
+        GetObject((int)Infos.CurrentDate).GetComponent<Text>().text = Managers.Data.GameData.SetDate(1);
 
-        if (_currentDate.Equals(new DateTime(2026, 6, 1)))
+        // 선거 이벤트 오픈 날짜인지 비교 -> 현재 이것 때문에 버그 있음
+        if (Managers.Data.GameData.GetDate().Equals(new DateTime(2026, 6, 1).ToString("yyyy-MM")))
             GetButton((int)Buttons.ToBattleButton).interactable = true;
         else
             GetButton((int)Buttons.ToBattleButton).interactable = false;
 
         // 인지도 적용
-        GetObject((int)Infos.Awareness).GetComponent<Text>().text = $"인지도 : {_awareness}";
+        GetObject((int)Infos.Awareness).GetComponent<Text>().text = $"인지도 : {Managers.Data.Player.Awareness}";
 
         //잠깐동안 버튼 이용 불가
         StartCoroutine(DisableButtons());
