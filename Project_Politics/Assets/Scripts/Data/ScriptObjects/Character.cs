@@ -18,7 +18,8 @@ public class Character : ScriptableObject
 
     // 인지도
     public int Awareness
-    { get 
+    {
+        get 
         {
             int awareness = 0;
 

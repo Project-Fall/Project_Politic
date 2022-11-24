@@ -5,7 +5,15 @@ public class ResourceManager
 {
     public T Load<T>(string path) where T : Object
     {
-        return Resources.Load<T>(path);
+        T resource = Resources.Load<T>(path);
+
+        if(resource == null)
+        {
+            Debug.Log($"Failed to load Resource : {path}");
+            return null;
+        }
+
+        return resource;
     }
 
     public GameObject Instantiate(string path, Transform parent = null)
