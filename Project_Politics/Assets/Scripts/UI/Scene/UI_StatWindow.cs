@@ -33,7 +33,6 @@ public class UI_StatWindow : UI_Scene
 
     // 임시
     [SerializeField] private int _upFigure = 1;
-    private DateTime _currentDate;
 
     void Start()
     {
@@ -58,8 +57,7 @@ public class UI_StatWindow : UI_Scene
         toBattle.interactable = false;
 
         // 날짜
-        _currentDate = Managers.Data.GameData.Date;
-        GetObject((int)Infos.CurrentDate).GetComponent<Text>().text = _currentDate.ToString("yyyy-MM");
+        GetObject((int)Infos.CurrentDate).GetComponent<Text>().text = Managers.Data.GameData.GetDate();
 
         // 인지도
         GetObject((int)Infos.Awareness).GetComponent<Text>().text = $"인지도 : {Managers.Data.Player.Awareness}";
@@ -110,10 +108,10 @@ public class UI_StatWindow : UI_Scene
         UpdateScore(idx);
 
         // 날짜 변경, UI 적용
-        _currentDate = _currentDate.AddMonths(1);
-        GetObject((int)Infos.CurrentDate).GetComponent<Text>().text = _currentDate.ToString("yyyy-MM");
+        GetObject((int)Infos.CurrentDate).GetComponent<Text>().text = Managers.Data.GameData.SetDate(1);
 
-        if (_currentDate.Equals(new DateTime(2026, 6, 1)))
+        // 선거 이벤트 오픈 날짜인지 비교 -> 현재 이것 때문에 버그 있음
+        if (Managers.Data.GameData.GetDate().Equals(new DateTime(2026, 6, 1).ToString("yyyy-MM")))
             GetButton((int)Buttons.ToBattleButton).interactable = true;
         else
             GetButton((int)Buttons.ToBattleButton).interactable = false;

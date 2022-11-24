@@ -6,11 +6,19 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ScriptableObjects", menuName = "ScriptableObject/GameData")]
 public class GameData : ScriptableObject
 {
+    // 플레이어
     [SerializeField] private Character _player;
     public Character Player { get { return _player; } }
 
-    [SerializeField] private int _passedTurn;
+    // 날짜 관련
+    private DateTime _date = new DateTime(2024, 6, 1); // 초기 날짜
+    [SerializeField] private int _passedTurn; // 지나간 개월
 
-    [SerializeField] private DateTime _date = new DateTime(2024, 6, 1);
-    public DateTime Date { get { return _date; } }
+    public string GetDate() { return _date.AddMonths(_passedTurn).ToString("yyyy-MM"); }
+
+    public string SetDate(int addMonth)
+    {
+        _passedTurn += addMonth;
+        return GetDate();
+    }
 }
