@@ -41,3 +41,21 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 793592207
+    locked: 0
+  - name: Office
+    uniqueID: 1259983797
+    locked: 0
+  - name: Object
+    uniqueID: 1357890311
+    locked: 0
+  - name: NPC
+    uniqueID: 1397827649
+    locked: 0
+  - name: Player
+    uniqueID: 908518211
+    locked: 0
+  - name: Foreground
+    uniqueID: 3563869503
+    locked: 0
