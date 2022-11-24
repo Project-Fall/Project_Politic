@@ -32,18 +32,8 @@ public class UI_StatWindow : UI_Scene
     }
 
     // 임시
-    [SerializeField] private int[] _stat = { 10, 10, 10, 10, 10 };
     [SerializeField] private int _upFigure = 1;
-    private DateTime _currentDate = new DateTime(2024, 6, 1);
-    [SerializeField] private GameData _data;
-
-
-    private int _awareness { get {
-            int result = 0;
-            foreach (int i in _stat)
-                result += i;
-            return result;
-        } }
+    private DateTime _currentDate;
 
     void Start()
     {
@@ -67,11 +57,12 @@ public class UI_StatWindow : UI_Scene
         BindEvent(toBattle.gameObject, (PointerEventData eventData) => Managers.Scene.LoadScene(Define.Scene.Battle));
         toBattle.interactable = false;
 
-        // 24년 6월을 가정
+        // 날짜
+        _currentDate = Managers.Data.GameData.Date;
         GetObject((int)Infos.CurrentDate).GetComponent<Text>().text = _currentDate.ToString("yyyy-MM");
 
         // 인지도
-        GetObject((int)Infos.Awareness).GetComponent<Text>().text = $"인지도 : {_awareness}";
+        GetObject((int)Infos.Awareness).GetComponent<Text>().text = $"인지도 : {Managers.Data.Player.Awareness}";
     }
 
     private void UpdateAllScore()
@@ -82,7 +73,7 @@ public class UI_StatWindow : UI_Scene
 
     private void UpdateScore(int idx)
     {
-        GetText(idx).text = _stat[idx].ToString();
+        GetText(idx).text = Managers.Data.Player.Stat[idx].ToString();
     }
 
     private void ChangeButtonState(bool b)
@@ -115,7 +106,7 @@ public class UI_StatWindow : UI_Scene
                 break;
         }
 
-        _stat[idx] += _upFigure;
+        Managers.Data.Player.Stat[idx] += _upFigure;
         UpdateScore(idx);
 
         // 날짜 변경, UI 적용
@@ -128,7 +119,7 @@ public class UI_StatWindow : UI_Scene
             GetButton((int)Buttons.ToBattleButton).interactable = false;
 
         // 인지도 적용
-        GetObject((int)Infos.Awareness).GetComponent<Text>().text = $"인지도 : {_awareness}";
+        GetObject((int)Infos.Awareness).GetComponent<Text>().text = $"인지도 : {Managers.Data.Player.Awareness}";
 
         //잠깐동안 버튼 이용 불가
         StartCoroutine(DisableButtons());
