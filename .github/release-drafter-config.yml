@@ -3,23 +3,10 @@ tag-template: '$NEXT_MINOR_VERSION'
 categories:
   - title: '🚀 기능 추가'
     label: 
-      - '패치 노트'
       - '기능 추가'
   - title: '🚨 버그 수정'
     label:
-      - '패치 노트'
       - '버그'
 change-template: '- $TITLE #$NUMBER @$AUTHOR '
 template: |
   $CHANGES
-
-autolabeler:
-  - label: '기능 추가'
-    body:
-      - '\*기능추가\*'
-  - label: '패치 노트'
-    body:
-      - '\*패치노트\*'
-  - label: '버그'
-    body:
-      - '\*버그\*'
