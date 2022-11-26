@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bff192f3d2030cb41ab4c6dab08258ff, type: 3}
-  m_Name: NPC1
+  m_Name: NPC3
   m_EditorClassIdentifier: 
-  _candidateName: "\uC774\uC885\uC11D"
-  _stat: 0a0000000a0000000a0000000a0000000a000000
+  _candidateName: "\uC774\uC885\uC11D(\uAC15\uD568)"
+  _age: 0
+  _stat: 1e0000001e0000001e0000001e0000001e000000
   _badReputation: 0
   Image: {fileID: 21300000, guid: 5ac973a6f79ca524491651155d08cd88, type: 3}
   _politicalParty: "\uC798\uC0DD\uACBC\uB2F9"
