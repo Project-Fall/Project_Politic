@@ -15,11 +15,13 @@ public class UI_Battle : UI_Scene
     private Vector2 _destPos;
     private bool _move = false;
     private GameObject _resultPanel;
+    private BattleController _battleController;
 
     void Start()
     {
+        _battleController = Managers.Scene.CurrentScene.GetComponent<BattleScene>().battleController;
         // 후보들을 가지고 옴 (씬으로부터)
-        Candidates = Managers.Scene.CurrentScene.GetComponent<BattleScene>().Candidates;
+        Candidates = _battleController.Candidates;
 
         // 위치 초기화
         CandidatePanel.transform.localPosition = Vector2.zero;
@@ -43,7 +45,6 @@ public class UI_Battle : UI_Scene
                 _moveCount++;
             }
         }
-
         // 클릭 시 움직임 (후보자 수만큼 움직이면 더 안 움직임)
         if (Input.GetMouseButtonDown(0) && _moveCount < Candidates.Length)
             _move = true;
@@ -55,12 +56,8 @@ public class UI_Battle : UI_Scene
 
     void ShowResult()
     {
-        // 인지도에 따라 당선자 이름 작성 (나중에 결과 판단 기준 바뀔 것 같음)
-        if (Candidates[0].Awareness > Candidates[1].Awareness)
-            Util.FindChild<Text>(_resultPanel, "Name").text = Candidates[0].Name;
-        else
-            Util.FindChild<Text>(_resultPanel, "Name").text = Candidates[1].Name;
-
+        var resultCandidate = _battleController.GetResultCandidate();
+        Util.FindChild<Text>(_resultPanel, "Name").text = resultCandidate.Name;
         // 메인으로 돌아가는 버튼
         BindEvent(Util.FindChild<Button>(_resultPanel, "ReturnButton").gameObject, 
             (PointerEventData eventData) => Managers.Scene.LoadScene(Define.Scene.Main));
