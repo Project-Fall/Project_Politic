@@ -6,19 +6,24 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ScriptableObjects", menuName = "ScriptableObject/GameData")]
 public class GameData : ScriptableObject
 {
-    // ÇÃ·¹ÀÌ¾î
+    // ï¿½Ã·ï¿½ï¿½Ì¾ï¿½
     [SerializeField] private Character _player;
     public Character Player { get { return _player; } }
 
-    // ³¯Â¥ °ü·Ã
-    private DateTime _date = new DateTime(2024, 6, 1); // ÃÊ±â ³¯Â¥
-    [SerializeField] private int _passedTurn; // Áö³ª°£ °³¿ù
+    // ï¿½ï¿½Â¥ ï¿½ï¿½ï¿½ï¿½
+    private DateTime _date = new DateTime(2024, 6, 1); // ï¿½Ê±ï¿½ ï¿½ï¿½Â¥
+    [SerializeField] private int _passedTurn; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-    public string GetDate() { return _date.AddMonths(_passedTurn).ToString("yyyy-MM"); }
+    public string GetDateString() { return _date.AddMonths(_passedTurn).ToString("yyyy-MM"); }
+
+    public DateTime GetDate()
+    {
+        return _date.AddMonths(_passedTurn);
+    }
 
     public string SetDate(int addMonth)
     {
         _passedTurn += addMonth;
-        return GetDate();
+        return GetDateString();
     }
 }

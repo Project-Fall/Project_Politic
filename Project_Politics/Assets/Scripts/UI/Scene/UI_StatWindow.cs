@@ -33,6 +33,12 @@ public class UI_StatWindow : UI_Scene
 
     // 임시
     [SerializeField] private int _upFigure = 1;
+    private MainController _mainController;
+
+    private void Awake()
+    {
+        _mainController = new MainController();
+    }
 
     void Start()
     {
@@ -40,7 +46,7 @@ public class UI_StatWindow : UI_Scene
         Bind<Button>(typeof(Buttons));
         Bind<Text>(typeof(Scores));
         Bind<GameObject>(typeof(Infos));
-
+        
         // 현재 Status를 UI로 띄우기
         UpdateAllScore();
 
@@ -57,7 +63,7 @@ public class UI_StatWindow : UI_Scene
         toBattle.interactable = false;
 
         // 날짜
-        GetObject((int)Infos.CurrentDate).GetComponent<Text>().text = Managers.Data.GameData.GetDate();
+        GetObject((int)Infos.CurrentDate).GetComponent<Text>().text = Managers.Data.GameData.GetDateString();
 
         // 인지도
         GetObject((int)Infos.Awareness).GetComponent<Text>().text = $"인지도 : {Managers.Data.Player.Awareness}";
@@ -111,10 +117,7 @@ public class UI_StatWindow : UI_Scene
         GetObject((int)Infos.CurrentDate).GetComponent<Text>().text = Managers.Data.GameData.SetDate(1);
 
         // 선거 이벤트 오픈 날짜인지 비교 -> 현재 이것 때문에 버그 있음
-        if (Managers.Data.GameData.GetDate().Equals(new DateTime(2026, 6, 1).ToString("yyyy-MM")))
-            GetButton((int)Buttons.ToBattleButton).interactable = true;
-        else
-            GetButton((int)Buttons.ToBattleButton).interactable = false;
+        GetButton((int)Buttons.ToBattleButton).interactable = _mainController.IsErect();
 
         // 인지도 적용
         GetObject((int)Infos.Awareness).GetComponent<Text>().text = $"인지도 : {Managers.Data.Player.Awareness}";
