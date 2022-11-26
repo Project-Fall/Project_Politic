@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 970bb7ec2dd6a584293398c80e09fb50
+guid: 5b24aede1a9489d43897dc144b0df19d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -129,7 +129,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: POLITI_1-Sheet_0
+      name: politics_man_speech-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,20 +137,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6a2fab64ed6f8fb4db876a45e85c2daf
-      internalID: -1049701913
+      spriteID: 86cf691e2dc2b62449dd405356b02e10
+      internalID: -955018773
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: POLITI_1-Sheet_1
+      name: politics_man_speech-Sheet_1
       rect:
         serializedVersion: 2
         x: 32
@@ -158,20 +158,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c1f0f0bb3fa3cb2458b5fbb3a35e45e7
-      internalID: 949512740
+      spriteID: 69f5bc9ea18aaff488f9521a80dff7ff
+      internalID: 206894084
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: POLITI_1-Sheet_2
+      name: politics_man_speech-Sheet_2
       rect:
         serializedVersion: 2
         x: 64
@@ -179,20 +179,41 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a631c68afc8b7624ba6536ea88070d8f
-      internalID: -1479479310
+      spriteID: c6e4e87ee9be76c4997f8ff05ecb4db0
+      internalID: -1282001950
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: POLITI_1-Sheet_4
+      name: politics_man_speech-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a5f3eed9c72131428c004761c54d257
+      internalID: 482223895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: politics_man_speech-Sheet_4
       rect:
         serializedVersion: 2
         x: 128
@@ -200,20 +221,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: edafab59074e5d24280bc9c6601beb90
-      internalID: 379933450
+      spriteID: 591b899211b312443bde387efe370875
+      internalID: -635058056
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: POLITI_1-Sheet_5
+      name: politics_man_speech-Sheet_5
       rect:
         serializedVersion: 2
         x: 160
@@ -221,20 +242,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c383eb8cf68723a41851054ed16039e7
-      internalID: 1631695443
+      spriteID: aeb2b3ca1c1492c48b883a0c7b027e5a
+      internalID: 1544968644
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: POLITI_1-Sheet_6
+      name: politics_man_speech-Sheet_6
       rect:
         serializedVersion: 2
         x: 192
@@ -242,35 +263,14 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2de880441b80761439e898c852f8dad5
-      internalID: 1436198137
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: POLITI_1-Sheet_7
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 595b49004a84f5c47a71c3a62fddc7fd
-      internalID: 2032765164
+      spriteID: 69d78bf5d650b5e4890cb66fa4e3c31c
+      internalID: 1059064009
       vertices: []
       indices: 
       edges: []
@@ -286,14 +286,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      POLITI_1-Sheet_3: -1897549758
-      POLITI_1-Sheet_6: 1436198137
-      POLITI_1-Sheet_1: 949512740
-      POLITI_1-Sheet_0: -1049701913
-      POLITI_1-Sheet_2: -1479479310
-      POLITI_1-Sheet_5: 1631695443
-      POLITI_1-Sheet_4: 379933450
-      POLITI_1-Sheet_7: 2032765164
+      politics_man_speech-Sheet_0: -955018773
+      politics_man_speech-Sheet_2: -1282001950
+      politics_man_speech-Sheet_6: 1059064009
+      politics_man_speech-Sheet_5: 1544968644
+      politics_man_speech-Sheet_3: 482223895
+      politics_man_speech-Sheet_4: -635058056
+      politics_man_speech-Sheet_1: 206894084
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
