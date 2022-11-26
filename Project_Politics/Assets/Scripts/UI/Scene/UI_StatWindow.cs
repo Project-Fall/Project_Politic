@@ -59,7 +59,10 @@ public class UI_StatWindow : UI_Scene
 
         // Battle 버튼을 누르면 Battle Scene으로
         Button toBattle = GetButton((int)Buttons.ToBattleButton);
-        BindEvent(toBattle.gameObject, (PointerEventData eventData) => Managers.Scene.LoadScene(Define.Scene.Battle));
+        BindEvent(toBattle.gameObject, (PointerEventData eventData) => {
+            Managers.Scene.LoadScene(Define.Scene.Battle);
+            Managers.Data.GameData.SetDate(1);
+            });
         toBattle.interactable = false;
 
         // 날짜
