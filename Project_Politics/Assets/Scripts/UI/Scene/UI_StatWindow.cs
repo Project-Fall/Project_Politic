@@ -13,7 +13,7 @@ public class UI_StatWindow : UI_Scene
         SympathyUpButton,
         LeadershipUpButton,
         TongueUpButton,
-        ToBattleButton,
+        //ToBattleButton,
     }
 
     enum Scores
@@ -58,12 +58,12 @@ public class UI_StatWindow : UI_Scene
         }
 
         // Battle 버튼을 누르면 Battle Scene으로
-        Button toBattle = GetButton((int)Buttons.ToBattleButton);
-        BindEvent(toBattle.gameObject, (PointerEventData eventData) => {
-            Managers.Scene.LoadScene(Define.Scene.Battle);
-            Managers.Data.GameData.SetDate(1);
-            });
-        toBattle.interactable = false;
+        //Button toBattle = GetButton((int)Buttons.ToBattleButton);
+        //BindEvent(toBattle.gameObject, (PointerEventData eventData) => {
+        //    Managers.Scene.LoadScene(Define.Scene.Battle);
+        //    Managers.Data.GameData.SetDate(1);
+        //    });
+        //toBattle.interactable = false;
 
         // 날짜
         GetObject((int)Infos.CurrentDate).GetComponent<Text>().text = Managers.Data.GameData.GetDateString();
@@ -121,6 +121,8 @@ public class UI_StatWindow : UI_Scene
 
         // 선거 이벤트 오픈 날짜인지 비교 -> 현재 이것 때문에 버그 있음
         //GetButton((int)Buttons.ToBattleButton).interactable = _mainController.IsErect();
+        
+        // 선거 전 달 입후보 여부 질문
         if (_mainController.IsErect())
             Managers.UI.ShowPopup<UI_ElectionQuestion>();
 
