@@ -11,6 +11,6 @@ public class MainController : IController
     }
     public bool IsErect()
     {
-        return Managers.Data.GameData.PassedTurn % 24 == 0;
+        return Managers.Data.GameData.PassedTurn % 24 == 23;
     }
 }

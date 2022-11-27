@@ -120,7 +120,9 @@ public class UI_StatWindow : UI_Scene
         GetObject((int)Infos.CurrentDate).GetComponent<Text>().text = Managers.Data.GameData.SetDate(1);
 
         // 선거 이벤트 오픈 날짜인지 비교 -> 현재 이것 때문에 버그 있음
-        GetButton((int)Buttons.ToBattleButton).interactable = _mainController.IsErect();
+        //GetButton((int)Buttons.ToBattleButton).interactable = _mainController.IsErect();
+        if (_mainController.IsErect())
+            Managers.UI.ShowPopup<UI_ElectionQuestion>();
 
         // 인지도 적용
         GetObject((int)Infos.Awareness).GetComponent<Text>().text = $"인지도 : {Managers.Data.Player.Awareness}";
