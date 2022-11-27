@@ -13,7 +13,7 @@ public class UI_StatWindow : UI_Scene
         SympathyUpButton,
         LeadershipUpButton,
         TongueUpButton,
-        ToBattleButton,
+        //ToBattleButton,
     }
 
     enum Scores
@@ -29,11 +29,14 @@ public class UI_StatWindow : UI_Scene
     {
         CurrentDate,
         Awareness,
+        Money,
     }
 
-    // 임시
-    [SerializeField] private int _upFigure = 1;
+    [SerializeField] private int _upFigure = 1; // 이벤트로 이동 예정
     private MainController _mainController;
+
+    // 서브 UI
+    private UI_ElectionQuestion _pop_election;
 
     private void Awake()
     {
@@ -58,18 +61,19 @@ public class UI_StatWindow : UI_Scene
         }
 
         // Battle 버튼을 누르면 Battle Scene으로
+        /*
         Button toBattle = GetButton((int)Buttons.ToBattleButton);
         BindEvent(toBattle.gameObject, (PointerEventData eventData) => {
             Managers.Scene.LoadScene(Define.Scene.Battle);
             Managers.Data.GameData.SetDate(1);
             });
         toBattle.interactable = false;
+        */
 
-        // 날짜
-        GetObject((int)Infos.CurrentDate).GetComponent<Text>().text = Managers.Data.GameData.GetDateString();
-
-        // 인지도
-        GetObject((int)Infos.Awareness).GetComponent<Text>().text = $"인지도 : {Managers.Data.Player.Awareness}";
+        // Game Info
+        GetObject((int)Infos.CurrentDate).GetComponent<Text>().text = Managers.Data.GameData.GetDateString(); // 날짜
+        GetObject((int)Infos.Awareness).GetComponent<Text>().text = $"인지도 : {Managers.Data.Player.Awareness}"; // 인지도
+        GetObject((int)Infos.Money).GetComponent<Text>().text = $"자금 : {Managers.Data.GameData.GetMoney()}"; // 자금(재화)
     }
 
     private void UpdateAllScore()
@@ -119,11 +123,19 @@ public class UI_StatWindow : UI_Scene
         // 날짜 변경, UI 적용
         GetObject((int)Infos.CurrentDate).GetComponent<Text>().text = Managers.Data.GameData.SetDate(1);
 
-        // 선거 이벤트 오픈 날짜인지 비교 -> 현재 이것 때문에 버그 있음
-        GetButton((int)Buttons.ToBattleButton).interactable = _mainController.IsErect();
+        // 선거 전 달 입후보 여부 질문
+        if (_mainController.IsCandidacyDay())
+            _pop_election = Managers.UI.ShowPopup<UI_ElectionQuestion>();
 
-        // 인지도 적용
+        // 선거 당일 달 선거 오픈 여부
+        //GetButton((int)Buttons.ToBattleButton).interactable = _mainController.IsErect();
+
+        // 인지도 UI 적용
         GetObject((int)Infos.Awareness).GetComponent<Text>().text = $"인지도 : {Managers.Data.Player.Awareness}";
+
+        // 자금 변동, UI 적용
+        Managers.Data.GameData.AddMoney(UnityEngine.Random.Range(1, 10));
+        GetObject((int)Infos.Money).GetComponent<Text>().text = $"자금 : {Managers.Data.GameData.GetMoney()}";
 
         //잠깐동안 버튼 이용 불가
         StartCoroutine(DisableButtons());

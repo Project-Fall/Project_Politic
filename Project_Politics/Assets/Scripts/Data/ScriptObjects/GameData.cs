@@ -25,4 +25,9 @@ public class GameData : ScriptableObject
         _passedTurn += addMonth;
         return GetDateString();
     }
+
+    [SerializeField] private int _money;
+    public int GetMoney() { return _money; }
+    public int AddMoney(int value) { return _money += value; }
+    public int SubMoney(int value) { return _money -= value; }
 }
