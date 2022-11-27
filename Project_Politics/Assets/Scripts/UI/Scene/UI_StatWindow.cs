@@ -29,6 +29,7 @@ public class UI_StatWindow : UI_Scene
     {
         CurrentDate,
         Awareness,
+        Money,
     }
 
     // 임시
@@ -65,11 +66,10 @@ public class UI_StatWindow : UI_Scene
         //    });
         //toBattle.interactable = false;
 
-        // 날짜
-        GetObject((int)Infos.CurrentDate).GetComponent<Text>().text = Managers.Data.GameData.GetDateString();
-
-        // 인지도
-        GetObject((int)Infos.Awareness).GetComponent<Text>().text = $"인지도 : {Managers.Data.Player.Awareness}";
+        // Game Info
+        GetObject((int)Infos.CurrentDate).GetComponent<Text>().text = Managers.Data.GameData.GetDateString(); // 날짜
+        GetObject((int)Infos.Awareness).GetComponent<Text>().text = $"인지도 : {Managers.Data.Player.Awareness}"; // 인지도
+        GetObject((int)Infos.Money).GetComponent<Text>().text = $"자금 : {Managers.Data.GameData.GetMoney()}"; // 자금(재화)
     }
 
     private void UpdateAllScore()
@@ -126,8 +126,12 @@ public class UI_StatWindow : UI_Scene
         if (_mainController.IsErect())
             Managers.UI.ShowPopup<UI_ElectionQuestion>();
 
-        // 인지도 적용
+        // 인지도 UI 적용
         GetObject((int)Infos.Awareness).GetComponent<Text>().text = $"인지도 : {Managers.Data.Player.Awareness}";
+
+        // 자금 변동, UI 적용
+        Managers.Data.GameData.AddMoney(UnityEngine.Random.Range(1, 10));
+        GetObject((int)Infos.Money).GetComponent<Text>().text = $"자금 : {Managers.Data.GameData.GetMoney()}";
 
         //잠깐동안 버튼 이용 불가
         StartCoroutine(DisableButtons());
