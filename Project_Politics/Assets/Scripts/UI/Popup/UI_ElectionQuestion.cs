@@ -1,18 +1,32 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class UI_ElectionQuestion : UI_Popup
 {
-    // Start is called before the first frame update
-    void Start()
+    enum Buttons
     {
-        
+        YesButton,
+        NoButton,
     }
 
-    // Update is called once per frame
-    void Update()
+    public Action<bool> ButtonClickAction;
+
+    void Start()
     {
-        
+        Bind<Button>(typeof(Buttons));
+        BindEvent(GetButton((int)Buttons.YesButton).gameObject, (PointerEventData) => OnClickYes());
+        BindEvent(GetButton((int)Buttons.NoButton).gameObject, (PointerEventData) => OnClickNo());
+    }
+
+    private void OnClickYes()
+    {
+        Managers.UI.ShowPopup<UI_Campain>();
+    }
+
+    private void OnClickNo()
+    {
+        gameObject.SetActive(false);
     }
 }
