@@ -8,21 +8,21 @@ public class UI_StatWindow : UI_Scene
 {
     enum Buttons
     {
-        PassionUpButton,
         CharismaUpButton,
-        SympathyUpButton,
+        ProfessionalUpButton,
         LeadershipUpButton,
-        TongueUpButton,
+        ConnectionUpButton,
+        SympathyUpButton,
         //ToBattleButton,
     }
 
     enum Scores
     {
-        PassionScore,
         CharismaScore,
-        SympathyScore,
+        ProfessionalScore,
         LeadershipScore,
-        TongueScore,
+        ConnectionScore,
+        SympathyScore,
     }
 
     enum Infos
@@ -54,7 +54,7 @@ public class UI_StatWindow : UI_Scene
         UpdateAllScore();
 
         // 버튼이랑 status 올리는 Action 연결
-        for (int i = 0; i <= (int)Buttons.TongueUpButton; i++)
+        for (int i = 0; i <= (int)Buttons.SympathyUpButton; i++)
         {
             Action<PointerEventData> action = (PointerEventData eventData) => OnClickButton(eventData);
             BindEvent(GetButton(i).gameObject, action);
@@ -89,7 +89,7 @@ public class UI_StatWindow : UI_Scene
 
     private void ChangeButtonState(bool b)
     {
-        for (int i = 0; i <= (int)Buttons.TongueUpButton; i++)
+        for (int i = 0; i <= (int)Buttons.SympathyUpButton; i++)
             GetButton(i).interactable = b;
     }
 
@@ -100,19 +100,19 @@ public class UI_StatWindow : UI_Scene
         // Enum 대체 왜 string으로 안 바뀌는 거임?! 이해할 수 X
         switch (eventData.pointerClick.name)
         {
-            case "PassionUpButton":
+            case "CharismaUpButton":
                 idx = 0;
                 break;
-            case "CharismaUpButton":
+            case "ProfessionalUpButton":
                 idx = 1;
                 break;
-            case "SympathyUpButton":
+            case "LeadershipUpButton":
                 idx = 2;
                 break;
-            case "LeadershipUpButton":
+            case "ConnectionUpButton":
                 idx = 3;
                 break;
-            case "TongueUpButton":
+            case "SympathyUpButton":
                 idx = 4;
                 break;
         }

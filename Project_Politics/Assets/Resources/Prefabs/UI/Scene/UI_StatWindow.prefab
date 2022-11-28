@@ -216,7 +216,7 @@ GameObject:
   - component: {fileID: 507235966266852688}
   - component: {fileID: 507235966266852695}
   m_Layer: 0
-  m_Name: CharismaScore
+  m_Name: ProfessionalScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -298,7 +298,7 @@ GameObject:
   - component: {fileID: 507235966416428863}
   - component: {fileID: 507235966416428862}
   m_Layer: 0
-  m_Name: Sympathy
+  m_Name: Leadership
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -487,7 +487,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uACF5\uAC10"
+  m_Text: "\uB9AC\uB354\uC2ED"
 --- !u!1 &507235966712963989
 GameObject:
   m_ObjectHideFlags: 0
@@ -567,7 +567,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uB9AC\uB354\uC2ED"
+  m_Text: "\uC778\uB9E5"
 --- !u!1 &507235967049290189
 GameObject:
   m_ObjectHideFlags: 0
@@ -580,7 +580,7 @@ GameObject:
   - component: {fileID: 507235967049290184}
   - component: {fileID: 507235967049290191}
   m_Layer: 0
-  m_Name: TongueScore
+  m_Name: SympathyScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -727,7 +727,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uCE74\uB9AC\uC2A4\uB9C8"
+  m_Text: "\uC804\uBB38\uC131"
 --- !u!1 &507235967126063701
 GameObject:
   m_ObjectHideFlags: 0
@@ -742,7 +742,7 @@ GameObject:
   - component: {fileID: 507235967126063696}
   - component: {fileID: 507235967126063703}
   m_Layer: 0
-  m_Name: Charisma
+  m_Name: Professional
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -864,7 +864,7 @@ GameObject:
   - component: {fileID: 507235967517357764}
   - component: {fileID: 507235967517357771}
   m_Layer: 0
-  m_Name: LeadershipScore
+  m_Name: ConnectionScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1011,7 +1011,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uB9D0\uBE68"
+  m_Text: "\uACF5\uAC10"
 --- !u!1 &507235968031508776
 GameObject:
   m_ObjectHideFlags: 0
@@ -1024,7 +1024,7 @@ GameObject:
   - component: {fileID: 507235968031508779}
   - component: {fileID: 507235968031508778}
   m_Layer: 0
-  m_Name: SympathyScore
+  m_Name: LeadershipScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1106,7 +1106,7 @@ GameObject:
   - component: {fileID: 507235968107241365}
   - component: {fileID: 507235968107241364}
   m_Layer: 0
-  m_Name: Leadership
+  m_Name: Connection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1230,7 +1230,7 @@ GameObject:
   - component: {fileID: 507235968226946252}
   - component: {fileID: 507235968226946259}
   m_Layer: 0
-  m_Name: Tongue
+  m_Name: Sympathy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1794,7 +1794,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uB9AC\uB354\uC2ED\nUP"
+  m_Text: "\uC778\uB9E5\nUP"
 --- !u!223 &4866149748365041201
 Canvas:
   m_ObjectHideFlags: 0
@@ -1896,7 +1896,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uACF5\uAC10\nUP"
+  m_Text: "\uB9AC\uB354\uC2ED\nUP"
 --- !u!223 &4866149748599964200
 Canvas:
   m_ObjectHideFlags: 0
@@ -1998,7 +1998,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uB9D0\uBE68\nUP"
+  m_Text: "\uACF5\uAC10\nUP"
 --- !u!223 &4866149748723436020
 Canvas:
   m_ObjectHideFlags: 0
@@ -2035,7 +2035,7 @@ GameObject:
   - component: {fileID: 4866149748754409136}
   - component: {fileID: 4866149748754409139}
   m_Layer: 0
-  m_Name: SympathyUpButton
+  m_Name: LeadershipUpButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2324,7 +2324,7 @@ GameObject:
   - component: {fileID: 4866149748861959425}
   - component: {fileID: 4866149748861959424}
   m_Layer: 0
-  m_Name: TongueUpButton
+  m_Name: SympathyUpButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2551,7 +2551,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uCE74\uB9AC\uC2A4\uB9C8\nUP"
+  m_Text: "\uC804\uBB38\uC131\nUP"
 --- !u!223 &4866149748880460013
 Canvas:
   m_ObjectHideFlags: 0
@@ -2588,7 +2588,7 @@ GameObject:
   - component: {fileID: 4866149748967262407}
   - component: {fileID: 4866149748967262406}
   m_Layer: 0
-  m_Name: LeadershipUpButton
+  m_Name: ConnectionUpButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2815,7 +2815,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uC5F4\uC815\nUP"
+  m_Text: "\uCE74\uB9AC\uC2A4\uB9C8\nUP"
 --- !u!223 &4866149749302916892
 Canvas:
   m_ObjectHideFlags: 0
@@ -2852,7 +2852,7 @@ GameObject:
   - component: {fileID: 4866149749432984236}
   - component: {fileID: 4866149749432984239}
   m_Layer: 0
-  m_Name: PassionUpButton
+  m_Name: CharismaUpButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3092,7 +3092,7 @@ GameObject:
   - component: {fileID: 4866149749890777415}
   - component: {fileID: 4866149749890777414}
   m_Layer: 0
-  m_Name: PassionScore
+  m_Name: CharismaScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3175,7 +3175,7 @@ GameObject:
   - component: {fileID: 4866149749993090083}
   - component: {fileID: 4866149749993090082}
   m_Layer: 0
-  m_Name: CharismaUpButton
+  m_Name: ProfessionalUpButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3336,7 +3336,7 @@ GameObject:
   - component: {fileID: 4866149750004369711}
   - component: {fileID: 4866149750004369710}
   m_Layer: 0
-  m_Name: Passion
+  m_Name: Charisma
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3525,7 +3525,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uC5F4\uC815"
+  m_Text: "\uCE74\uB9AC\uC2A4\uB9C8"
 --- !u!1 &4866149750143467916
 GameObject:
   m_ObjectHideFlags: 0
