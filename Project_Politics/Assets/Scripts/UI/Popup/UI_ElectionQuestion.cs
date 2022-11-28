@@ -22,6 +22,7 @@ public class UI_ElectionQuestion : UI_Popup
 
     private void OnClickYes()
     {
+        Managers.UI.ClosePopup();
         Managers.UI.ShowPopup<UI_Campain>();
     }
 
