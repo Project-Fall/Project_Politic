@@ -16,6 +16,8 @@ public class ResourceManager
         return resource;
     }
 
+    public T LoadSO<T>(string path) where T : Object { return Load<T>($"ScriptObjects/{path}"); }
+
     public GameObject Instantiate(string path, Transform parent = null)
     {
         GameObject prefab = Load<GameObject>($"Prefabs/{path}");
@@ -40,5 +42,5 @@ public class ResourceManager
         if (go == null)
             return;
         Object.Destroy(go);
-    }
+    } 
 }

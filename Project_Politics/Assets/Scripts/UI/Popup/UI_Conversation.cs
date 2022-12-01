@@ -5,14 +5,7 @@ using UnityEngine.UI;
 
 public class UI_Conversation : UI_Popup
 {
-    class Conversation
-    {
-        string name;
-        List<string> script = new List<string>();
-    }
-
-    private Dictionary<string, string> scripts = new Dictionary<string, string>();
-    string[] textScript = { "text1", "text2", "text3", "text4", "text5" };
+    private List<Script> _scripts = new List<Script>();
 
     enum Texts
     {
@@ -20,17 +13,34 @@ public class UI_Conversation : UI_Popup
         NameText,
     }
 
+    enum Objects
+    {
+        Name,
+    }
+
     void Start()
     {
         Bind<Text>(typeof(Texts));
+        Bind<GameObject>(typeof(Objects));
+
+        _scripts = Managers.Data.ScriptData["title3"];
         StartCoroutine(WaitForNextScript());
     }
 
     IEnumerator WaitForNextScript()
     {
-        foreach(string script in textScript)
+        foreach(Script script in _scripts)
         {
-            GetText((int)Texts.ConversationText).text = script;
+            // 이름 없으면 이름 창 꺼짐
+            if (script.name == "")
+                GetObject((int)Objects.Name).SetActive(false);
+            else
+            {
+                GetObject((int)Objects.Name).SetActive(true);
+                GetText((int)Texts.NameText).text = script.name;
+            }
+
+            GetText((int)Texts.ConversationText).text = script.script;
             yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
         }
     }

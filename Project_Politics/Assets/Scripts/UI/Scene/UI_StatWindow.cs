@@ -137,6 +137,8 @@ public class UI_StatWindow : UI_Scene
         Managers.Data.GameData.AddMoney(UnityEngine.Random.Range(1, 10));
         GetObject((int)Infos.Money).GetComponent<Text>().text = $"자금 : {Managers.Data.GameData.GetMoney()}";
 
+        Managers.UI.ShowPopup<UI_Conversation>();
+
         //잠깐동안 버튼 이용 불가
         StartCoroutine(DisableButtons());
     }

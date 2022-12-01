@@ -1,6 +1,13 @@
 {
     "scripts":[
         {
+            "title": "이 자리에 이벤트 제목을 그대로 쓰시면 됩니다.",
+            "contents": [
+                {"name":"말하는 사람(시스템이면 비워두세요)", "script": "<- 얘가 말하는 내용"},
+                {"name":"위랑 같은 사람이 말해도 한 번 더 적어줘야 함", "script": "이하 생략"}
+            ]
+        },
+        {
             "title": "title",
             "contents": [
                 {"name":"뫄뫄", "script": "솨솨"}
@@ -17,7 +24,8 @@
             "contents": [
                 {"name":"뫄뫄3", "script": "솨솨3"},
                 {"name":"뫄뫄2", "script": "솨솨솨솨"},
-                {"name":"뫄뫄3", "script": "솨솨솨"}
+                {"name":"뫄뫄3", "script": "솨솨솨"},
+                {"name":"", "script": "그렇게 됐다."}
             ]
         },
         {
