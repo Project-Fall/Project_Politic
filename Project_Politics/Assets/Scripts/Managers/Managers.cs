@@ -22,6 +22,9 @@ public class Managers : MonoBehaviour
     private DataManager _data = new DataManager();
     public static DataManager Data { get { return Instance._data; } }
 
+    private InputManager _input = new InputManager();
+    public static InputManager Input { get { return Instance._input; } }
+
 
 
 

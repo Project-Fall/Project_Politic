@@ -60,6 +60,7 @@ public class UIManager
 
         GameObject go = Managers.Resource.Instantiate($"UI/Popup/{name}", Root.transform);
         T popup = go.GetOrAddComponent<T>();
+        SetCanvas(go, true);
         _popupStack.Push(popup);
 
         return popup;
@@ -76,7 +77,7 @@ public class UIManager
 
         if(_popupStack.Peek() != popup)
         {
-            Debug.Log($"Failed to close popup : {popup.name}");
+            Debug.Log($"Failed to close popup : {popup.name}, Now : {_popupStack.Peek().name}");
             return;
         }
 

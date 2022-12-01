@@ -11,6 +11,7 @@ public class MainScene : BaseScene
         SceneType = Define.Scene.Main;
 
         Managers.UI.ShowScene<UI_StatWindow>();
+        //Managers.UI.ShowPopup<UI_Conversation>();
     }
 
     public override void Clear()

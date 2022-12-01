@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,7 @@ using UnityEngine.UI;
 public class UI_Conversation : UI_Popup
 {
     private List<Script> _scripts = new List<Script>();
+    private Event _event;
 
     enum Texts
     {
@@ -18,18 +20,19 @@ public class UI_Conversation : UI_Popup
         Name,
     }
 
-    void Start()
+    public void Init(Event evt)
     {
         Bind<Text>(typeof(Texts));
         Bind<GameObject>(typeof(Objects));
 
-        _scripts = Managers.Data.ScriptData["title3"];
-        StartCoroutine(WaitForNextScript());
+        _event = evt;
+
+        StartCoroutine(PrintScript());
     }
 
-    IEnumerator WaitForNextScript()
+    IEnumerator PrintScript()
     {
-        foreach(Script script in _scripts)
+        foreach(Script script in _event.GetEventScript())
         {
             // 이름 없으면 이름 창 꺼짐
             if (script.name == "")
@@ -41,10 +44,36 @@ public class UI_Conversation : UI_Popup
             }
 
             GetText((int)Texts.ConversationText).text = script.script;
-            yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
+            yield return new WaitUntil(() => Managers.Input.Click);
         }
 
-        yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
-        gameObject.SetActive(false);
+        string result = MakeResultText();
+        if (result.Equals("") == false)
+        {
+            GetText((int)Texts.ConversationText).text = result;
+            yield return new WaitUntil(() => Managers.Input.Click);
+        }
+
+        Managers.UI.ClosePopup(this);
+    }
+
+    private string MakeResultText()
+    {
+        string result = new string("");
+        for(int i=0; i<_event.Stat.Length; i++)
+        {
+            if (_event.Stat[i] == 0)
+                continue;
+
+            result += $"{Enum.GetName(typeof(Define.StatKor), i)}이(가) {_event.Stat[i]}, ";
+        }
+
+        if (!result.Equals(""))
+        {
+            result = result.Remove(result.Length - 2);
+            result += " 되었다.";
+        }
+
+        return result;
     }
 }
