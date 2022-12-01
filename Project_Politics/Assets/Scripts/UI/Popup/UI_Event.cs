@@ -29,7 +29,6 @@ public class UI_Event : UI_Popup
         while (true)
         {
             yield return new WaitUntil(() => Managers.Input.Click);
-            //yield return new WaitForSeconds(0.5f);
             Managers.UI.ClosePopup(this);
         }
     }

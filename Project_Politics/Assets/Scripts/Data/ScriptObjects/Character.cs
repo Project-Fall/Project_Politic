@@ -14,7 +14,7 @@ public class Character : ScriptableObject
 
     // 열정 카리스마 공감 리더십 말빨
     [SerializeField] private int[] _stat = new int[5];
-    public int[] Stat { get { return _stat; } }
+    public int[] Stat { get { return _stat; } set { _stat = value; } }
 
     // 인지도
     public int Awareness
