@@ -22,4 +22,13 @@ public class Define
         Effect,
         MaxCount,
     }
+
+    public enum StatKor
+    {
+        카리스마,
+        전문성,
+        리더십,
+        인맥,
+        공감,
+    }
 }
