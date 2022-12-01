@@ -43,5 +43,8 @@ public class UI_Conversation : UI_Popup
             GetText((int)Texts.ConversationText).text = script.script;
             yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
         }
+
+        yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
+        gameObject.SetActive(false);
     }
 }
