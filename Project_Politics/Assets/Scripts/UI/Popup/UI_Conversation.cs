@@ -5,9 +5,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class UI_Conversation : UI_Popup
-{
-    private List<Script> _scripts = new List<Script>();
+{ 
     private Event _event;
+    private float _typingSpeed = 0.05f;
 
     enum Texts
     {
@@ -30,8 +30,9 @@ public class UI_Conversation : UI_Popup
         StartCoroutine(PrintScript());
     }
 
-    IEnumerator PrintScript()
+    private IEnumerator PrintScript()
     {
+        // 이벤트 스크립트 본문 출력
         foreach(Script script in _event.GetEventScript())
         {
             // 이름 없으면 이름 창 꺼짐
@@ -43,18 +44,35 @@ public class UI_Conversation : UI_Popup
                 GetText((int)Texts.NameText).text = script.name;
             }
 
-            GetText((int)Texts.ConversationText).text = script.script;
+            StartCoroutine(TypingEffect(script.script));
+
             yield return new WaitUntil(() => Managers.Input.Click);
         }
 
+        // 이벤트 후 스탯 변화 출력
         string result = MakeResultText();
         if (result.Equals("") == false)
         {
+            GetObject((int)Objects.Name).SetActive(false);
             GetText((int)Texts.ConversationText).text = result;
             yield return new WaitUntil(() => Managers.Input.Click);
         }
 
         Managers.UI.ClosePopup(this);
+    }
+
+    private IEnumerator TypingEffect(string script)
+    {
+        Text text = GetText((int)Texts.ConversationText);
+        text.text = "";
+
+        foreach (char c in script.ToCharArray())
+        {
+            text.text += c;
+            yield return new WaitForSeconds(_typingSpeed);
+        }
+
+        text.text = script;
     }
 
     private string MakeResultText()
