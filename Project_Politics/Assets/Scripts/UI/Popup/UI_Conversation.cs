@@ -8,6 +8,7 @@ public class UI_Conversation : UI_Popup
 { 
     private Event _event;
     private float _typingSpeed = 0.05f;
+    Coroutine co_typing = null;
 
     enum Texts
     {
@@ -44,9 +45,9 @@ public class UI_Conversation : UI_Popup
                 GetText((int)Texts.NameText).text = script.name;
             }
 
-            StartCoroutine(TypingEffect(script.script));
+            co_typing = StartCoroutine(TypingEffect(script.script));
 
-            yield return new WaitUntil(() => Managers.Input.Click);
+            yield return new WaitUntil(() => Managers.Input.Click && co_typing == null);
         }
 
         // 이벤트 후 스탯 변화 출력
@@ -73,6 +74,7 @@ public class UI_Conversation : UI_Popup
         }
 
         text.text = script;
+        co_typing = null;
     }
 
     private string MakeResultText()
