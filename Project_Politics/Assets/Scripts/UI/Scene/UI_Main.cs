@@ -138,23 +138,15 @@ public class UI_Main : UI_Scene
     {
         if (_deployMode == false)
         {
-            Debug.Log("Deploy Mode ON");
+            GetButton((int)Buttons.ToDeployButton).image.color = Color.green;
             GetComponent<Animator>().Play("Deploy On");
             _deployMode = true;
         }
         else
         {
-            Debug.Log("Deploy Mode OFF");
             GetButton((int)Buttons.ToDeployButton).image.color = Color.white;
             GetComponent<Animator>().Play("Deploy Off");
             _deployMode = false;
         }
-    }
-
-    public void OffDeployMode()
-    {
-        Debug.Log("Deploy Mode OFF");
-        GetButton((int)Buttons.ToDeployButton).image.color = Color.white;
-        GetComponent<Animator>().Play("Default");
     }
 }
