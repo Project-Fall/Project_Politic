@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UI_StatWindow : UI_Scene
+public class UI_Main : UI_Scene
 {
     enum Buttons
     {
@@ -34,6 +34,7 @@ public class UI_StatWindow : UI_Scene
 
     [SerializeField] private int _upFigure = 1; // 이벤트로 이동 예정
     private MainController _mainController;
+    private bool _deployMode = false;
 
     private void Awake()
     {
@@ -135,11 +136,25 @@ public class UI_StatWindow : UI_Scene
 
     public void OnDeployMode()
     {
-        Debug.Log("On Deploy Mode");
+        if (_deployMode == false)
+        {
+            Debug.Log("Deploy Mode ON");
+            GetComponent<Animator>().Play("Deploy On");
+            _deployMode = true;
+        }
+        else
+        {
+            Debug.Log("Deploy Mode OFF");
+            GetButton((int)Buttons.ToDeployButton).image.color = Color.white;
+            GetComponent<Animator>().Play("Deploy Off");
+            _deployMode = false;
+        }
     }
 
     public void OffDeployMode()
     {
-
+        Debug.Log("Deploy Mode OFF");
+        GetButton((int)Buttons.ToDeployButton).image.color = Color.white;
+        GetComponent<Animator>().Play("Default");
     }
 }
