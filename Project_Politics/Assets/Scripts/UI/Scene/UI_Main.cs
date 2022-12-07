@@ -32,13 +32,14 @@ public class UI_Main : UI_Scene
         Money,
     }
 
-    [SerializeField] private int _upFigure = 1; // 이벤트로 이동 예정
     private MainController _mainController;
     private bool _deployMode = false;
+    [SerializeField] private bool _deployUI;
 
     private void Awake()
     {
         _mainController = new MainController();
+        _deployUI = GetComponentInChildren<UI_Deploy>();
 
         // 변경될 오브젝트 찾기
         Bind<Button>(typeof(Buttons));
@@ -76,36 +77,16 @@ public class UI_Main : UI_Scene
 
     private void OnClickButton(PointerEventData eventData)
     {
-        int idx = new int();
-
-        // Enum 대체 왜 string으로 안 바뀌는 거임?! 이해할 수 X
-        switch (eventData.pointerClick.name)
-        {
-            case "CharismaUpButton":
-                idx = 0;
-                break;
-            case "ProfessionalUpButton":
-                idx = 1;
-                break;
-            case "LeadershipUpButton":
-                idx = 2;
-                break;
-            case "ConnectionUpButton":
-                idx = 3;
-                break;
-            case "SympathyUpButton":
-                idx = 4;
-                break;
-        }
-
-        Managers.Data.Player.Stat[idx] += _upFigure;
-        Refresh();
-
         // 선거 전 달 입후보 여부 질문
         if (_mainController.IsCandidacyDay())
-            Managers.UI.ShowPopup<UI_ElectionQuestion>();   
+            Managers.UI.ShowPopup<UI_ElectionQuestion>();
 
-        Managers.UI.ShowPopup<UI_Event>().Init(Managers.Resource.LoadSO<Event>("Event/Event1"));
+        // 이벤트 발생, 결과 적용
+        Event evt = Managers.Resource.LoadSO<Event>("Event/Event1");
+        Managers.UI.ShowPopup<UI_Event>().Init(evt);
+        for (int i = 0; i < evt.Stat.Length; i++)
+            Managers.Data.Player.Stat[i] += evt.Stat[i];
+        Refresh();
 
         //잠깐동안 버튼 이용 불가
         StartCoroutine(DisableButtons());
