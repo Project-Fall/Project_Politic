@@ -46,7 +46,7 @@ public class UI_Battle : UI_Scene
             }
         }
         // 클릭 시 움직임 (후보자 수만큼 움직이면 더 안 움직임)
-        if (Input.GetMouseButtonDown(0) && _moveCount < Candidates.Length)
+        if (Managers.Input.Click && _moveCount < Candidates.Length)
             _move = true;
 
         // 후보자 수만큼 움직이면 결과창 띄움

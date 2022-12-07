@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class BattleController : IController
 {
+
     public Character[] Candidates { get; }
 
     public BattleController()

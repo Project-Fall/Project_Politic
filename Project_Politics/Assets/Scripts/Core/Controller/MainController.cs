@@ -2,6 +2,7 @@ using System;
 
 public class MainController : IController
 {
+
     private DateTime[] _erectDate;
     private bool _isCandidacy = false;
 
