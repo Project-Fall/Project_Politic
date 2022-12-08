@@ -10,7 +10,7 @@ public class MainScene : BaseScene
 
         SceneType = Define.Scene.Main;
 
-        Managers.UI.ShowScene<UI_StatWindow>();
+        Managers.UI.ShowScene<UI_Main>();
         //Managers.UI.ShowPopup<UI_Conversation>();
     }
 

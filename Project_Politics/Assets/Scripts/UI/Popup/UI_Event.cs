@@ -24,8 +24,6 @@ public class UI_Event : UI_Popup
 
     IEnumerator WaitUntilClick()
     {
-        for (int i = 0; i < _event.Stat.Length; i++)
-            Managers.Data.Player.Stat[i] += _event.Stat[i];
         while (true)
         {
             yield return new WaitUntil(() => Managers.Input.Click);
