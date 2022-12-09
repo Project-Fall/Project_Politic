@@ -14,6 +14,7 @@ public class Define
     {
         Main,
         Battle,
+        Start,
     }
 
     public enum Sound
