@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainScene : BaseScene
+public class StartScene : BaseScene
 {
     protected override void Init()
     {
         base.Init();
 
-        SceneType = Define.Scene.Main;
+        SceneType = Define.Scene.Start;
 
-        Managers.UI.ShowScene<UI_Main>();
+        Managers.UI.ShowScene<UI_Start>();
     }
 
     public override void Clear()

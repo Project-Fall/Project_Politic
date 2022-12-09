@@ -107,4 +107,12 @@ public class UIManager
         while (_popupStack.Count > 0)
             ClosePopup();
     }
+
+    public UI_Popup GetLastPopup()
+    {
+        if (_popupStack.Count <= 0)
+            return null;
+
+        return _popupStack.Peek();
+    }
 }

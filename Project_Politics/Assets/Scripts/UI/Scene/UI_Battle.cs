@@ -22,6 +22,8 @@ public class UI_Battle : UI_Scene
         _battleController = Managers.Scene.CurrentScene.GetComponent<BattleScene>().battleController;
         // 후보들을 가지고 옴 (씬으로부터)
         Candidates = _battleController.Candidates;
+        Util.FindChild<UI_CandidateInfo>(CandidatePanel, "Candidate 1").Candidate = _battleController.Candidates[0];
+        Util.FindChild<UI_CandidateInfo>(CandidatePanel, "Candidate 2").Candidate = _battleController.Candidates[1];
 
         // 위치 초기화
         CandidatePanel.transform.localPosition = Vector2.zero;
@@ -56,7 +58,7 @@ public class UI_Battle : UI_Scene
 
     void ShowResult()
     {
-        var resultCandidate = _battleController.GetResultCandidate();
+        var resultCandidate = _battleController.GetWinner();
         Util.FindChild<Text>(_resultPanel, "Name").text = resultCandidate.Name;
         // 메인으로 돌아가는 버튼
         BindEvent(Util.FindChild<Button>(_resultPanel, "ReturnButton").gameObject, 

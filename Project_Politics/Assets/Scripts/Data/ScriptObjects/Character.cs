@@ -19,7 +19,7 @@ public class Character : ScriptableObject
     // 인지도
     public int Awareness
     {
-        get 
+        get
         {
             int awareness = 0;
 
@@ -39,4 +39,8 @@ public class Character : ScriptableObject
     // 정당
     [SerializeField] private string _politicalParty;
     public string PoliticalParty { get { return _politicalParty; } }
+
+    // 직책
+    [SerializeField] private Define.Position _position = Define.Position.백수;
+    public Define.Position Position { get { return _position; } set { _position = value; } }
 }

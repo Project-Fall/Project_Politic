@@ -14,6 +14,7 @@ public class Define
     {
         Main,
         Battle,
+        Start,
     }
 
     public enum Sound
@@ -30,5 +31,15 @@ public class Define
         리더십,
         인맥,
         공감,
+    }
+
+    public enum Position
+    {
+        대통령,
+        국회의원,
+        자치단체장,
+        지방의원,
+        기초자치단체,
+        백수,
     }
 }
