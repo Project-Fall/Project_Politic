@@ -18,3 +18,4 @@ MonoBehaviour:
   _badReputation: 0
   Image: {fileID: 21300000, guid: 5ac973a6f79ca524491651155d08cd88, type: 3}
   _politicalParty: "\uC798\uC0DD\uACBC\uB2F9"
+  _position: 5

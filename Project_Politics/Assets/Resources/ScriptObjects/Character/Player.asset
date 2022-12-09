@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Player
   m_EditorClassIdentifier: 
   _candidateName: "\uC5EC\uC9C4\uAD6C"
+  _age: 0
   _stat: 0f0000000f0000000f0000000f0000000f000000
   _badReputation: 0
   Image: {fileID: 21300000, guid: ea8460b3b53beb145906aeb66265dd65, type: 3}
   _politicalParty: "\uADC0\uC5FD\uB2F9"
+  _position: 5
