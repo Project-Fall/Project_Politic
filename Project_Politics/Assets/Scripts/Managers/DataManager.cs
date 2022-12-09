@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class DataManager
@@ -10,6 +11,7 @@ public class DataManager
     public Character Player { get { Init(); return GameData.Player; } }
 
     public Dictionary<string, List<Script>> ScriptData = new Dictionary<string, List<Script>>();
+    public List<Character> NPCs = new List<Character>();
 
     public void Init()
     {
@@ -17,6 +19,7 @@ public class DataManager
         {
             _gameData = Managers.Resource.Load<GameData>("ScriptObjects/GameData");
             ScriptData = LoadJson<ScriptLoader, string, List<Script>>("Script").MakeDict();
+            BindAllNPC();
         }        
     }
 
@@ -24,6 +27,20 @@ public class DataManager
     {
         TextAsset textAsset = Managers.Resource.Load<TextAsset>($"Data/{path}");
         return JsonUtility.FromJson<Loader>(textAsset.text);
+    }
+
+    public void BindAllNPC()
+    {
+        string pattern = "*.asset";
+        string[] names = Directory.GetFiles("Assets/Resources/ScriptObjects/Character/NPC", pattern);
+        foreach (string n in names)
+        {
+            string name = Path.GetFileNameWithoutExtension(n);
+            Character npc = Managers.Resource.Load<Character>($"ScriptObjects/Character/NPC/{name}");
+            if (npc == null)
+                continue;
+            NPCs.Add(npc);
+        }
     }
 }
 
