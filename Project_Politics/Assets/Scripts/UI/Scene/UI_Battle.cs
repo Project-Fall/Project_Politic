@@ -8,7 +8,7 @@ public class UI_Battle : UI_Scene
 {
     // 지금은 만들어놓고 가지고 오지만 나중에는 후보자 수만큼 생성하는 방식으로 바꿀 것 같음
     public GameObject CandidatePanel;
-    public int Speed = 600;
+    [SerializeField] public int Speed = 1800;
 
     [SerializeField] Character[] Candidates;
     private int _moveCount = 0;

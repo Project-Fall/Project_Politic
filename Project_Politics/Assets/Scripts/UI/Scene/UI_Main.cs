@@ -79,10 +79,7 @@ public class UI_Main : UI_Scene
     private void OnClickButton(PointerEventData eventData)
     {
         // 이벤트 발생, 결과 적용
-        Event evt = Managers.Resource.LoadSO<Event>("Event/Event1");
-        Managers.UI.ShowPopup<UI_Event>().Init(evt);
-        for (int i = 0; i < evt.Stat.Length; i++)
-            Managers.Data.Player.Stat[i] += evt.Stat[i];
+        ShowEvent(eventData);
 
         // 스트레스 적용 (인맥이 아닐 때)
         if (!eventData.pointerClick.name.Equals(Enum.GetName(typeof(Buttons), Buttons.ConnectionUpButton)))
@@ -98,6 +95,32 @@ public class UI_Main : UI_Scene
 
         //잠깐동안 버튼 이용 불가
         StartCoroutine(DisableButtons());
+    }
+
+    private void ShowEvent(PointerEventData eventData)
+    {
+        Event evt = new Event();
+        switch (eventData.pointerClick.name)
+        {
+            case "CharismaUpButton":
+                evt = Managers.Data.Events[0];
+                break;
+            case "ProfessionalUpButton":
+                evt = Managers.Data.Events[1];
+                break;
+            case "LeadershipUpButton":
+                evt = Managers.Data.Events[2];
+                break;
+            case "ConnectionUpButton":
+                evt = Managers.Data.Events[3];
+                break;
+            case "SympathyUpButton":
+                evt = Managers.Data.Events[4];
+                break;
+        }
+        Managers.UI.ShowPopup<UI_Event>().Init(evt);
+        for (int i = 0; i < evt.Stat.Length; i++)
+            Managers.Data.Player.Stat[i] += evt.Stat[i];
     }
 
     private IEnumerator DisableButtons()
