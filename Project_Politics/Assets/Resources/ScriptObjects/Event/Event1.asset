@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Event1
   m_EditorClassIdentifier: 
   _eventName: title3
-  _stat: 0000000000000000000000000000000000000000
+  _stat: 0a00000000000000050000000000000000000000
   Image: {fileID: 2097886229, guid: d89c05324ad9014468897a32ff0cdf89, type: 3}
   _state: 0
