@@ -8,31 +8,50 @@
             ]
         },
         {
-            "title": "title",
+            "title": "training_charisma",
+          "contents": [
+            {
+              "name": "",
+              "script": "동네주민에게 연설하니 자신감이 올랐다."
+            }
+          ]
+        },
+      {
+        "title": "training_professional",
+        "contents": [
+          {
+            "name": "",
+            "script": "세미나에 참석하니 지식이 차오른 느낌이다."
+          }
+        ]
+      },
+        {
+            "title": "training_leadership",
             "contents": [
-                {"name":"뫄뫄", "script": "솨솨"}
+              {
+                "name": "",
+                "script": "비서들과 같이 일하니 리더쉽이 는것 같다."
+              }
+                
             ]
         },
-        {
-            "title": "title2",
-            "contents": [
-                {"name":"뫄뫄2", "script": "솨솨2"}
-            ]
-        },
-        {
-            "title": "title3",
-            "contents": [
-                {"name":"뫄뫄3", "script": "엄청나게 긴 문장이 필요해"},
-                {"name":"뫄뫄2", "script": "스킵하는 의미가 있을 정도로 긴 문장"},
-                {"name":"뫄뫄3", "script": "가끔은 짧은 문장도 괜찮긴 하지"},
-                {"name":"야야", "script": "그렇게 됐다."}
-            ]
-        },
-        {
-            "title": "title4",
-            "contents": [
-                {"name":"뫄뫄4", "script": "솨솨4"}
-            ]
-        }
+      {
+        "title": "training_connections",
+        "contents": [
+          {
+            "name": "",
+            "script": "유력자들과 함께 술을 마시니 인맥이 넓어졌다."
+          }
+        ]
+      },
+      {
+        "title": "training_sympathy",
+        "contents": [
+          {
+            "name": "",
+            "script": "자원봉사를 하니 시민들에 대해 더욱 공감할 수 있게 되었다."
+          }
+        ]
+      }
     ]
 } 
