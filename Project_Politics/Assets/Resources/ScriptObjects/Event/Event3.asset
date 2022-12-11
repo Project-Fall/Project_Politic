@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _eventName: training_connections
   _stat: 0000000000000000000000000a00000000000000
-  Image: {fileID: 21300000, guid: 06953e0e176ca564484fffd60311b1c9, type: 3}
+  Image: {fileID: 21300000, guid: 3e3e07617f926214fa36edcd1f059309, type: 3}
   _state: 0

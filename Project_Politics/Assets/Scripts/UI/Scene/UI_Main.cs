@@ -99,7 +99,7 @@ public class UI_Main : UI_Scene
 
     private void ShowEvent(PointerEventData eventData)
     {
-        Event evt = new Event();
+        Event evt = null;
         switch (eventData.pointerClick.name)
         {
             case "CharismaUpButton":
