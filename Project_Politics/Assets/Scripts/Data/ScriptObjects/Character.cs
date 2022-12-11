@@ -35,6 +35,7 @@ public class Character : ScriptableObject
 
     // 이미지
     public Sprite Image;
+    public Sprite WinImage;
 
     // 정당
     [SerializeField] private string _politicalParty;
