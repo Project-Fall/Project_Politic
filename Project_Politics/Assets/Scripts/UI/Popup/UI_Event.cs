@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class UI_Event : UI_Popup
 {
     [SerializeField] private Event _event;
+    public bool isEnd = false;
 
     enum Images
     {
@@ -27,6 +28,7 @@ public class UI_Event : UI_Popup
         while (true)
         {
             yield return new WaitUntil(() => Managers.Input.Click);
+            isEnd = true;
             Managers.UI.ClosePopup(this);
         }
     }

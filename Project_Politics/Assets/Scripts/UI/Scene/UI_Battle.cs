@@ -60,6 +60,8 @@ public class UI_Battle : UI_Scene
     {
         var resultCandidate = _battleController.GetWinner();
         Util.FindChild<Text>(_resultPanel, "Name").text = resultCandidate.Name;
+        Util.FindChild<Image>(_resultPanel, "Image").sprite = resultCandidate.WinImage;
+
         // 메인으로 돌아가는 버튼
         BindEvent(Util.FindChild<Button>(_resultPanel, "ReturnButton").gameObject, 
             (PointerEventData eventData) => Managers.Scene.LoadScene(Define.Scene.Main));
