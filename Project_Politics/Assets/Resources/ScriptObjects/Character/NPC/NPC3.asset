@@ -16,5 +16,6 @@ MonoBehaviour:
   _age: 0
   _stat: 1e0000001e0000001e0000001e0000001e000000
   _badReputation: 0
-  Image: {fileID: 21300000, guid: 5ac973a6f79ca524491651155d08cd88, type: 3}
+  Image: {fileID: -955018773, guid: 5b24aede1a9489d43897dc144b0df19d, type: 3}
   _politicalParty: "\uC798\uC0DD\uACBC\uB2F9"
+  _position: 5
