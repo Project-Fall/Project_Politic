@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7e6f120a7800d8429b2a82c570d4b59, type: 3}
   m_Name: Event1
   m_EditorClassIdentifier: 
-  _eventName: title3
+  _eventName: training_charisma
   _stat: 0a00000000000000050000000000000000000000
   Image: {fileID: 2097886229, guid: d89c05324ad9014468897a32ff0cdf89, type: 3}
   _state: 0
