@@ -32,5 +32,6 @@ public class GameData : ScriptableObject
     public int SubMoney(int value) { return _money -= value; }
 
     [SerializeField] private int _stress;
-    public int Stress { get { return _stress; } set { _stress += value; if (_stress > 100) _stress = 100; } }
+    public int Stress { get { return _stress; } }
+    public void SetStress(int value) { _stress += value; if (_stress > 100) _stress = 100; }
 }
