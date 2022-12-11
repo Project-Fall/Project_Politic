@@ -17,7 +17,7 @@ public class UI_Event : UI_Popup
         _event = evt;
         Bind<Image>(typeof(Images));
         GetImage((int)Images.EventImage).sprite = evt.Image;
-        GetImage((int)Images.EventImage).preserveAspect = true;
+        GetImage((int)Images.EventImage).preserveAspect = false;
         Managers.UI.ShowPopup<UI_Conversation>().Init(evt);
         StartCoroutine(WaitUntilClick());
     }
