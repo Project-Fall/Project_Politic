@@ -864,7 +864,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CandidatePanel: {fileID: 5730891144781947159}
-  Speed: 600
+  Speed: 1800
   Candidates: []
 --- !u!1 &5730891143926432238
 GameObject:
