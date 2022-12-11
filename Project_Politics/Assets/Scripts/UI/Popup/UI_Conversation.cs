@@ -85,13 +85,10 @@ public class UI_Conversation : UI_Popup
             if (_event.Stat[i] == 0)
                 continue;
 
-            result += $"{Enum.GetName(typeof(Define.StatKor), i)}이(가) {_event.Stat[i]}, ";
-        }
-
-        if (!result.Equals(""))
-        {
-            result = result.Remove(result.Length - 2);
-            result += " 되었다.";
+            if(_event.Stat[i] > 0)
+                result += $"{Enum.GetName(typeof(Define.StatKor), i)}이(가) {_event.Stat[i]} 증가했습니다.\n";
+            else
+                result += $"{Enum.GetName(typeof(Define.StatKor), i)}이(가) {-_event.Stat[i]} 감소했습니다.\n";
         }
 
         return result;
