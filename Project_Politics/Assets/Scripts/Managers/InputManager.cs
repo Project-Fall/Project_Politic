@@ -18,4 +18,9 @@ public class InputManager
 
         return false;
     }
+
+    public bool AnyKey()
+    {
+        return Input.anyKeyDown;
+    }
 }
