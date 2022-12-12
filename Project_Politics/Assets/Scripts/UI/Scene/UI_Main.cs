@@ -79,7 +79,7 @@ public class UI_Main : UI_Scene
     private void OnClickButton(PointerEventData eventData)
     {
         // 이벤트 발생, 결과 적용
-        ShowEvent(eventData);
+        StartCoroutine(ShowEvent(eventData));
 
         // 스트레스 적용 (인맥이 아닐 때)
         if (!eventData.pointerClick.name.Equals(Enum.GetName(typeof(Buttons), Buttons.ConnectionUpButton)))
@@ -89,17 +89,13 @@ public class UI_Main : UI_Scene
 
         Refresh();
 
-        // 선거 전 달 입후보 여부 질문
-        if (_mainController.IsCandidacyDay())
-            Managers.UI.ShowPopup<UI_ElectionQuestion>();
-
         //잠깐동안 버튼 이용 불가
         StartCoroutine(DisableButtons());
     }
 
-    private void ShowEvent(PointerEventData eventData)
+    private IEnumerator ShowEvent(PointerEventData eventData)
     {
-        Event evt = new Event();
+        Event evt = null;
         switch (eventData.pointerClick.name)
         {
             case "CharismaUpButton":
@@ -118,9 +114,16 @@ public class UI_Main : UI_Scene
                 evt = Managers.Data.Events[4];
                 break;
         }
-        Managers.UI.ShowPopup<UI_Event>().Init(evt);
+        UI_Event ui_evt = Managers.UI.ShowPopup<UI_Event>();
+        ui_evt.Init(evt);
         for (int i = 0; i < evt.Stat.Length; i++)
             Managers.Data.Player.Stat[i] += evt.Stat[i];
+
+        yield return new WaitUntil(() => ui_evt.isEnd);
+
+        // 선거 전 달 입후보 여부 질문
+        if (_mainController.IsCandidacyDay())
+            Managers.UI.ShowPopup<UI_ElectionQuestion>();
     }
 
     private IEnumerator DisableButtons()

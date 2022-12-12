@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bff192f3d2030cb41ab4c6dab08258ff, type: 3}
   m_Name: NPC2
   m_EditorClassIdentifier: 
-  _candidateName: "\uC774\uC885\uC11D(\uC911\uAC04)"
+  _candidateName: "\uC774\uC911\uAC04"
   _age: 0
   _stat: 1400000014000000140000001400000014000000
   _badReputation: 0
-  Image: {fileID: 21300000, guid: 5ac973a6f79ca524491651155d08cd88, type: 3}
+  Image: {fileID: 1513431525, guid: 6a680b7f22e1d6a4a9ae315f680c6ff2, type: 3}
+  WinImage: {fileID: 2082313272, guid: 6a680b7f22e1d6a4a9ae315f680c6ff2, type: 3}
   _politicalParty: "\uC798\uC0DD\uACBC\uB2F9"
+  _position: 5
