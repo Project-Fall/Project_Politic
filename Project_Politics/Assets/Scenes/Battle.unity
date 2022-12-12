@@ -304,9 +304,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7a2816f1fced0e47bc32147f99473cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Candidates:
-  - {fileID: 11400000, guid: a51016ff9d918044f856a307b0bfe7da, type: 2}
-  - {fileID: 11400000, guid: 33851b001f3c4144b8d71b43a8cb5b7c, type: 2}
   battleStartUI: {fileID: 0}
   battleUI: {fileID: 0}
 --- !u!4 &1406172052
