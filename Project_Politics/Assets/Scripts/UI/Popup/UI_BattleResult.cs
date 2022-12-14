@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class UI_BattleResult : UI_Popup
 {
     private BattleController _battleController;
+    [SerializeField] float _lightingTime = 3f;
+    [SerializeField] float _waitingTime = 2f;
 
     enum Objects
     {
@@ -42,12 +44,12 @@ public class UI_BattleResult : UI_Popup
         GetObject((int)Objects.ReturnButton).SetActive(false);
 
         GetObject((int)Objects.Light).GetComponent<Animator>().Play("Light");
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(_lightingTime);
 
         GetObject((int)Objects.Light).GetComponent<Animator>().enabled = false;
         GetObject((int)Objects.LeftImage).SetActive(false);
         GetObject((int)Objects.RightImage).SetActive(false);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(_waitingTime);
 
         ShowWinner();
         yield return new WaitForSeconds(1f);
