@@ -59,6 +59,7 @@ public class SoundManager
 				audioSource.Stop();
 
 			audioSource.pitch = pitch;
+            audioSource.volume = Managers.Data.GameData.BGMVolume;
 			audioSource.clip = audioClip;
 			audioSource.Play();
 		}
@@ -66,7 +67,8 @@ public class SoundManager
 		{
 			AudioSource audioSource = _audioSources[(int)Define.Sound.Effect];
 			audioSource.pitch = pitch;
-			audioSource.PlayOneShot(audioClip);
+            audioSource.volume = Managers.Data.GameData.SEVolume;
+            audioSource.PlayOneShot(audioClip);
 		}
 	}
 

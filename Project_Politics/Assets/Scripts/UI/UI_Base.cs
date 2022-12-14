@@ -57,6 +57,11 @@ public class UI_Base : MonoBehaviour
                 evt.OnPointClickHandler -= action;
                 evt.OnPointClickHandler += action;
                 break;
+
+            case Define.UIEvent.Hover:
+                evt.OnPointEnterHandler -= action;
+                evt.OnPointEnterHandler += action;
+                break;
         }
     }
 }

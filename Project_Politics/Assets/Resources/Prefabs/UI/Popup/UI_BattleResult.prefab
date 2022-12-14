@@ -825,6 +825,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ReturnButton
       objectReference: {fileID: 0}
+    - target: {fileID: 8822373883342689642, guid: 3634ba7ca4211334e8e8b8e13c12e4cf, type: 3}
+      propertyPath: UseSE
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3634ba7ca4211334e8e8b8e13c12e4cf, type: 3}
 --- !u!224 &4983911705763423269 stripped
