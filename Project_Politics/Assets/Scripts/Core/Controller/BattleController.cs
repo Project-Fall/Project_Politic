@@ -7,7 +7,6 @@ public class BattleController : IController
     public BattleController()
     {
         Candidates = new Character[2];
-        Managers.Data.Init();
         Candidates[0] = Managers.Data.NPCs[Random.Range(0, Managers.Data.NPCs.Count)];
         Candidates[1] = Managers.Data.Player;
     }

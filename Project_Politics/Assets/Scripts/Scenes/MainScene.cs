@@ -11,6 +11,8 @@ public class MainScene : BaseScene
         SceneType = Define.Scene.Main;
 
         Managers.UI.ShowScene<UI_Main>();
+
+        Managers.Sound.Play("BGM/Main", Define.Sound.Bgm);
     }
 
     public override void Clear()

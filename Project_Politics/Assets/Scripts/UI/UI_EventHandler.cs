@@ -3,9 +3,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class UI_EventHandler : MonoBehaviour, IPointerClickHandler
+public class UI_EventHandler : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler
 {
     public Action<PointerEventData> OnPointClickHandler = null;
+    public Action<PointerEventData> OnPointEnterHandler = null;
 
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -16,5 +17,11 @@ public class UI_EventHandler : MonoBehaviour, IPointerClickHandler
 
         if (OnPointClickHandler != null)
             OnPointClickHandler.Invoke(eventData);
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (OnPointEnterHandler != null)
+            OnPointEnterHandler.Invoke(eventData);
     }
 }

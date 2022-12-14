@@ -7,8 +7,8 @@ using UnityEngine;
 public class DataManager
 {
     private GameData _gameData;
-    public GameData GameData { get { Init(); return _gameData; } }
-    public Character Player { get { Init(); return GameData.Player; } }
+    public GameData GameData { get { return _gameData; } }
+    public Character Player { get { return GameData.Player; } }
 
     public Dictionary<string, List<Script>> ScriptData = new Dictionary<string, List<Script>>();
     public List<Character> NPCs = new List<Character>();
@@ -16,13 +16,10 @@ public class DataManager
 
     public void Init()
     {
-        if (_gameData == null)
-        {
-            _gameData = Managers.Resource.Load<GameData>("ScriptObjects/GameData");
-            ScriptData = LoadJson<ScriptLoader, string, List<Script>>("Script").MakeDict();
-            BindAllNPC();
-            BindAllEvent();
-        }        
+        _gameData = Managers.Resource.Load<GameData>("ScriptObjects/GameData");
+        ScriptData = LoadJson<ScriptLoader, string, List<Script>>("Script").MakeDict();
+        BindAllNPC();
+        BindAllEvent();    
     }
 
     Loader LoadJson<Loader, Key, Value>(string path) where Loader : ILoader<Key, Value>

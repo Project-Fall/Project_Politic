@@ -29,10 +29,6 @@ public class UI_Battle : UI_Scene
         CandidatePanel.transform.localPosition = Vector2.zero;
         _destPos = CandidatePanel.transform.localPosition;
         _destPos += new Vector2(-850, 0);
-
-        // 결과창은 따로 관리
-        _resultPanel = Util.FindChild(CandidatePanel, "BattleResult");
-        _resultPanel.SetActive(false);
     }
 
     void Update()
@@ -48,24 +44,14 @@ public class UI_Battle : UI_Scene
             }
         }
         // 클릭 시 움직임 (후보자 수만큼 움직이면 더 안 움직임)
-        if (Managers.Input.AnyKey() && _moveCount < Candidates.Length)
+        if (Managers.Input.Click && _moveCount < Candidates.Length)
             _move = true;
 
         // 후보자 수만큼 움직이면 결과창 띄움
         if (_moveCount == Candidates.Length)
-            ShowResult();
-    }
-
-    void ShowResult()
-    {
-        var resultCandidate = _battleController.GetWinner();
-        Util.FindChild<Text>(_resultPanel, "Name").text = resultCandidate.Name;
-        Util.FindChild<Image>(_resultPanel, "Image").sprite = resultCandidate.WinImage;
-
-        // 메인으로 돌아가는 버튼
-        BindEvent(Util.FindChild<Button>(_resultPanel, "ReturnButton").gameObject, 
-            (PointerEventData eventData) => Managers.Scene.LoadScene(Define.Scene.Main));
-
-        _resultPanel.SetActive(true);
+        {
+            Managers.UI.ShowPopup<UI_BattleResult>();
+            _moveCount++;
+        }
     }
 }

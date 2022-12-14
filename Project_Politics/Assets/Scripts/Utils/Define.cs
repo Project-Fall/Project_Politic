@@ -8,6 +8,7 @@ public class Define
     {
         Click,
         Drag,
+        Hover,
     }
 
     public enum Scene
