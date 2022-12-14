@@ -1,11 +1,11 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SoundManager
 {
     AudioSource[] _audioSources = new AudioSource[(int)Define.Sound.MaxCount];
-    Dictionary<string, AudioClip> _audioClips = new Dictionary<string, AudioClip>();
+    [SerializeField] Dictionary<string, AudioClip> _audioClips = new Dictionary<string, AudioClip>();
 
     // MP3 Player   -> AudioSource
     // MP3 음원     -> AudioClip

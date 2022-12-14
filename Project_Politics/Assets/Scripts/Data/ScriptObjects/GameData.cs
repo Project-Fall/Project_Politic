@@ -34,4 +34,7 @@ public class GameData : ScriptableObject
     [SerializeField] private int _stress;
     public int Stress { get { return _stress; } }
     public void SetStress(int value) { _stress += value; if (_stress > 100) _stress = 100; }
+
+    public float BGMVolume = 1.0f;
+    public float SEVolume = 1.0f;
 }
