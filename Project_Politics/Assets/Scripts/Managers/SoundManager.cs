@@ -97,4 +97,9 @@ public class SoundManager
 
 		return audioClip;
     }
+
+    public void ChangeVolume(float value)
+    {
+        _audioSources[(int)Define.Sound.Bgm].volume = value;
+    }
 }
