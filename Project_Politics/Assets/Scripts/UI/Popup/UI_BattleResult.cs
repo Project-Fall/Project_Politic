@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class UI_BattleResult : UI_Popup
 {
     private BattleController _battleController;
+    [SerializeField] float _lightingTime = 3f;
+    [SerializeField] float _waitingTime = 2f;
 
     enum Objects
     {
@@ -14,6 +16,7 @@ public class UI_BattleResult : UI_Popup
         Image2,
         WinnerName,
         ReturnButton,
+        Light,
         LeftImage,
         RightImage,
     }
@@ -30,22 +33,37 @@ public class UI_BattleResult : UI_Popup
         GetObject((int)Objects.Image2).GetComponent<Image>().sprite = _battleController.Candidates[1].WinImage;
 
         // 메인으로 돌아가는 버튼
-        BindEvent(GetObject((int)Objects.ReturnButton), (PointerEventData eventData) => Managers.Scene.LoadScene(Define.Scene.Main));
+        BindEvent(GetObject((int)Objects.ReturnButton), (PointerEventData) => Managers.Scene.LoadScene(Define.Scene.Main));
+
+        StartCoroutine(ShowResult());
     }
 
-    public void WinnerLight()
+    private IEnumerator ShowResult()
+    {
+        GetObject((int)Objects.WinnerName).SetActive(false);
+        GetObject((int)Objects.ReturnButton).SetActive(false);
+
+        GetObject((int)Objects.Light).GetComponent<Animator>().Play("Light");
+        yield return new WaitForSeconds(_lightingTime);
+
+        GetObject((int)Objects.Light).GetComponent<Animator>().enabled = false;
+        GetObject((int)Objects.LeftImage).SetActive(false);
+        GetObject((int)Objects.RightImage).SetActive(false);
+        yield return new WaitForSeconds(_waitingTime);
+
+        ShowWinner();
+        yield return new WaitForSeconds(1f);
+
+        GetObject((int)Objects.ReturnButton).SetActive(true);
+    }
+
+    public void ShowWinner()
     {
         if (_battleController.GetWinner() == _battleController.Candidates[0])
-        {
             GetObject((int)Objects.LeftImage).SetActive(true);
-            GetObject((int)Objects.RightImage).SetActive(false);
-            Debug.Log("후보자 1 승리");
-        }
         else
-        {
-            GetObject((int)Objects.LeftImage).SetActive(false);
             GetObject((int)Objects.RightImage).SetActive(true);
-            Debug.Log("후보자 2 승리");
-        }
+
+        GetObject((int)Objects.WinnerName).SetActive(true);
     }
 }

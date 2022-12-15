@@ -11,8 +11,6 @@ public class UI_ElectionQuestion : UI_Popup
         NoButton,
     }
 
-    public Action<bool> ButtonClickAction;
-
     void Start()
     {
         Bind<Button>(typeof(Buttons));
@@ -23,7 +21,7 @@ public class UI_ElectionQuestion : UI_Popup
     private void OnClickYes()
     {
         Managers.UI.ClosePopup();
-        Managers.UI.ShowPopup<UI_Campain>();
+        Managers.UI.ShowPopup<UI_PositionQuestion>();
     }
 
     private void OnClickNo()

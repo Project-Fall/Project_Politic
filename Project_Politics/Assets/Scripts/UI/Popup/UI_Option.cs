@@ -36,6 +36,7 @@ public class UI_Option : UI_Popup
     public void ChangeBGMVolume(float value)
     {
         Managers.Data.GameData.BGMVolume = value;
+        Managers.Sound.ChangeVolume(value);
     }
 
     public void ChangeSEVolume(float value)

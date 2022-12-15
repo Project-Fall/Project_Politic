@@ -14,6 +14,7 @@ public class UI_Main : UI_Scene
         ConnectionUpButton,
         SympathyUpButton,
         ToDeployButton,
+        ToOptionButton,
     }
 
     enum Scores
@@ -31,6 +32,7 @@ public class UI_Main : UI_Scene
         Awareness,
         Money,
         Stress,
+        Position,
     }
 
     private MainController _mainController;
@@ -54,7 +56,8 @@ public class UI_Main : UI_Scene
             BindEvent(GetButton(i).gameObject, action);
         }
 
-        BindEvent(GetButton((int)Buttons.ToDeployButton).gameObject, (PointerEventData eventData) => OnDeployMode());
+        BindEvent(GetButton((int)Buttons.ToDeployButton).gameObject, (PointerEventData) => OnDeployMode());
+        BindEvent(GetButton((int)Buttons.ToOptionButton).gameObject, (PointerEventData) => Managers.UI.ShowPopup<UI_Option>());
 
         Refresh();
     }
@@ -150,6 +153,8 @@ public class UI_Main : UI_Scene
 
         // 스트레스 UI 적용
         GetObject((int)Infos.Stress).GetComponent<Text>().text = $"스트레스 : {Managers.Data.GameData.Stress}";
+
+        GetObject((int)Infos.Position).GetComponent<Text>().text = $"직책 : {Managers.Data.Player.Position}";
     }
 
     public void OnDeployMode()
