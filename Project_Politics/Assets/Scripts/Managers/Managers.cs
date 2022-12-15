@@ -45,6 +45,12 @@ public class Managers : MonoBehaviour
 
             s_instance._data.Init();
             s_instance._sound.Init();
+            s_instance.data();
         }
+    }
+
+    private void data()
+    {
+        gameObject.GetOrAddComponent<DataViewer>();
     }
 }

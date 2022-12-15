@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class MainScene : BaseScene
 {
+    public GameObject Work;
+    public Secretary secretary;
+
     protected override void Init()
     {
         base.Init();
@@ -13,6 +16,8 @@ public class MainScene : BaseScene
         Managers.UI.ShowScene<UI_Main>();
 
         Managers.Sound.Play("BGM/Main", Define.Sound.Bgm);
+        Work.GetComponent<Animator>().runtimeAnimatorController = secretary.Motion;
+        Work.GetComponent<Animator>().Play("Work");
     }
 
     public override void Clear()
