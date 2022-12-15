@@ -12,6 +12,7 @@ public class UI_Gacha : UI_Popup
         Back,
         GachaButton,
         Resume,
+        White,
     }
 
     void Start()
@@ -25,12 +26,21 @@ public class UI_Gacha : UI_Popup
 
     private IEnumerator Gacha()
     {
+        GetObject((int)Objects.Resume).SetActive(false);
         GetObject((int)Objects.GachaButton).SetActive(false);
         GetObject((int)Objects.Back).GetComponent<Button>().interactable = false;
-        GetObject((int)Objects.EnvelopImage).GetComponent<Animator>().SetBool("Open", true);
+        GetObject((int)Objects.EnvelopImage).SetActive(true);
+        GetObject((int)Objects.White).SetActive(true);
+        GetComponent<Animator>().SetTrigger("Open");
 
         yield return new WaitForSeconds(2f);
         GetObject((int)Objects.EnvelopImage).SetActive(false);
+        GetObject((int)Objects.White).SetActive(false);
         GetObject((int)Objects.Resume).SetActive(true);
+        GetComponent<Animator>().SetTrigger("Exit");
+
+        yield return new WaitForSeconds(0.2f);
+        GetObject((int)Objects.Back).GetComponent<Button>().interactable = true;
+        GetObject((int)Objects.GachaButton).SetActive(true);
     }
 }
