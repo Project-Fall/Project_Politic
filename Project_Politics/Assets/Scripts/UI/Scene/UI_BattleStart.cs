@@ -31,6 +31,6 @@ public class UI_BattleStart : UI_Scene
         GetObject((int)Objects.Right).GetOrAddComponent<UI_CandidateInfo>().Candidate
             = Managers.Scene.CurrentScene.GetComponent<BattleScene>().battleController.Candidates[1];
 
-        //BindEvent(Util.FindChild(transform.GetChild(0).gameObject, "BattleStartButton"), ButtonAction);
+        BindEvent(Util.FindChild(transform.GetChild(0).gameObject, "BattleStartButton"), ButtonAction);
     }
 }

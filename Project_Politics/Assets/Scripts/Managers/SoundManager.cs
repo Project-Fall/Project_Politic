@@ -1,11 +1,11 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SoundManager
 {
     AudioSource[] _audioSources = new AudioSource[(int)Define.Sound.MaxCount];
-    Dictionary<string, AudioClip> _audioClips = new Dictionary<string, AudioClip>();
+    [SerializeField] Dictionary<string, AudioClip> _audioClips = new Dictionary<string, AudioClip>();
 
     // MP3 Player   -> AudioSource
     // MP3 음원     -> AudioClip
@@ -17,7 +17,7 @@ public class SoundManager
         if (root == null)
         {
             root = new GameObject { name = "@Sound" };
-            Object.DontDestroyOnLoad(root);
+            //Object.DontDestroyOnLoad(root);
 
             string[] soundNames = System.Enum.GetNames(typeof(Define.Sound));
             for (int i = 0; i < soundNames.Length - 1; i++)
@@ -59,6 +59,7 @@ public class SoundManager
 				audioSource.Stop();
 
 			audioSource.pitch = pitch;
+            audioSource.volume = Managers.Data.GameData.BGMVolume;
 			audioSource.clip = audioClip;
 			audioSource.Play();
 		}
@@ -66,7 +67,8 @@ public class SoundManager
 		{
 			AudioSource audioSource = _audioSources[(int)Define.Sound.Effect];
 			audioSource.pitch = pitch;
-			audioSource.PlayOneShot(audioClip);
+            audioSource.volume = Managers.Data.GameData.SEVolume;
+            audioSource.PlayOneShot(audioClip);
 		}
 	}
 

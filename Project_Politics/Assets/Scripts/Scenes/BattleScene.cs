@@ -20,13 +20,11 @@ public class BattleScene : BaseScene
         base.Init();
         battleController = new BattleController();
         battleStartUI = Managers.UI.ShowScene<UI_BattleStart>();
-        //battleStartUI.ButtonAction = (PointerEventData) => BattleStart();
-        StartCoroutine(BattleStart());
+        battleStartUI.ButtonAction = (PointerEventData) => BattleStart();
     }
     
-    private IEnumerator BattleStart()
+    private void BattleStart()
     {
-        yield return new WaitUntil(() => Managers.Input.AnyKey());
         battleStartUI.gameObject.SetActive(false);
         battleUI = Managers.UI.ShowScene<UI_Battle>();
     }
