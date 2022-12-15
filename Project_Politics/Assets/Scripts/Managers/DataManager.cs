@@ -13,13 +13,15 @@ public class DataManager
     public Dictionary<string, List<Script>> ScriptData = new Dictionary<string, List<Script>>();
     public List<Character> NPCs = new List<Character>();
     public List<Event> Events = new List<Event>();
+    public List<Secretary> Secretarys = new List<Secretary>();
 
     public void Init()
     {
         _gameData = Managers.Resource.Load<GameData>("ScriptObjects/GameData");
         ScriptData = LoadJson<ScriptLoader, string, List<Script>>("Script").MakeDict();
         BindAllNPC();
-        BindAllEvent();    
+        BindAllEvent();
+        BindAllSecretary();
     }
 
     Loader LoadJson<Loader, Key, Value>(string path) where Loader : ILoader<Key, Value>
@@ -31,11 +33,11 @@ public class DataManager
     public void BindAllNPC()
     {
         string pattern = "*.asset";
-        string[] names = Directory.GetFiles("Assets/Resources/ScriptObjects/Character/NPC", pattern);
+        string[] names = Directory.GetFiles("Assets/Resources/ScriptObjects/NPC", pattern);
         foreach (string n in names)
         {
             string name = Path.GetFileNameWithoutExtension(n);
-            Character npc = Managers.Resource.Load<Character>($"ScriptObjects/Character/NPC/{name}");
+            Character npc = Managers.Resource.Load<Character>($"ScriptObjects/NPC/{name}");
             if (npc == null)
                 continue;
             NPCs.Add(npc);
@@ -53,6 +55,20 @@ public class DataManager
             if (evt == null)
                 continue;
             Events.Add(evt);
+        }
+    }
+
+    public void BindAllSecretary()
+    {
+        string pattern = "*.asset";
+        string[] names = Directory.GetFiles("Assets/Resources/ScriptObjects/Secretary", pattern);
+        foreach (string n in names)
+        {
+            string name = Path.GetFileNameWithoutExtension(n);
+            Secretary secretary = Managers.Resource.Load<Secretary>($"ScriptObjects/Secretary/{name}");
+            if (secretary == null)
+                continue;
+            Secretarys.Add(secretary);
         }
     }
 }
