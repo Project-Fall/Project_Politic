@@ -22,8 +22,9 @@ public class UI_SecretaryInfo : UI_Base
     public void Init(Secretary secretary)
     {
         _secretary = secretary;
-        GetObject((int)Objects.Image).GetComponent<Image>();
-        GetObject((int)Objects.Name).GetComponent<Text>();
+        GetObject((int)Objects.Image).GetComponent<Animator>().runtimeAnimatorController = secretary.Motion;
+        GetObject((int)Objects.Image).GetComponent<Animator>().Play("Default");
+        GetObject((int)Objects.Name).GetComponent<Text>().text = secretary.Name;
         GetObject((int)Objects.Stat).GetComponent<Text>();
     }
 }

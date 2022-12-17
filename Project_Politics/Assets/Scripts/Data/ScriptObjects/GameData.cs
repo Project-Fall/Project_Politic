@@ -29,7 +29,7 @@ public class GameData : ScriptableObject
 
     [SerializeField] private int _money;
     public int GetMoney() { return _money; }
-    public int AddMoney(int value) { Debug.Log(value); return _money += value; }
+    public int AddMoney(int value) { return _money += value; }
 
     [SerializeField] private int _prizeMoney;
     public int Prize { get { return _prizeMoney; } set { _prizeMoney = value; } }
