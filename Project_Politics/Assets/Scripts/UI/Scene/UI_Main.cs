@@ -15,6 +15,7 @@ public class UI_Main : UI_Scene
         SympathyUpButton,
         ToDeployButton,
         ToOptionButton,
+        ToGachaButton,
     }
 
     enum Scores
@@ -37,12 +38,10 @@ public class UI_Main : UI_Scene
 
     private MainController _mainController;
     private bool _deployMode = false;
-    [SerializeField] private bool _deployUI;
 
     private void Awake()
     {
         _mainController = new MainController();
-        _deployUI = GetComponentInChildren<UI_Deploy>();
 
         // 변경될 오브젝트 찾기
         Bind<Button>(typeof(Buttons));
@@ -58,6 +57,7 @@ public class UI_Main : UI_Scene
 
         BindEvent(GetButton((int)Buttons.ToDeployButton).gameObject, (PointerEventData) => OnDeployMode());
         BindEvent(GetButton((int)Buttons.ToOptionButton).gameObject, (PointerEventData) => Managers.UI.ShowPopup<UI_Option>());
+        BindEvent(GetButton((int)Buttons.ToGachaButton).gameObject, (PointerEventData) => Managers.UI.ShowPopup<UI_Gacha>());
 
         Refresh();
     }
@@ -89,6 +89,7 @@ public class UI_Main : UI_Scene
             Managers.Data.GameData.SetStress(20);
 
         Managers.Data.GameData.SetDate(1);
+        Managers.Data.GameData.AddMoney(UnityEngine.Random.Range(1, 10));
 
         Refresh();
 
@@ -145,7 +146,6 @@ public class UI_Main : UI_Scene
         GetObject((int)Infos.Awareness).GetComponent<Text>().text = $"인지도 : {Managers.Data.Player.Awareness}";
 
         // 자금 변동, UI 적용
-        Managers.Data.GameData.AddMoney(UnityEngine.Random.Range(1, 10));
         GetObject((int)Infos.Money).GetComponent<Text>().text = $"자금 : {Managers.Data.GameData.GetMoney()}";
 
         // 날짜 변경, UI 적용
