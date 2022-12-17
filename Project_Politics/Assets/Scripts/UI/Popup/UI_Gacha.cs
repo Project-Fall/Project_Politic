@@ -43,4 +43,9 @@ public class UI_Gacha : UI_Popup
         GetObject((int)Objects.Back).GetComponent<Button>().interactable = true;
         GetObject((int)Objects.GachaButton).SetActive(true);
     }
+
+    private void GetNewSecretary()
+    {
+
+    }
 }
