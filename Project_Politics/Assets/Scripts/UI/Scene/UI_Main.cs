@@ -15,7 +15,7 @@ public class UI_Main : UI_Scene
         SympathyUpButton,
         ToDeployButton,
         ToOptionButton,
-        ToGachaButton,
+        //ToGachaButton,
     }
 
     enum Scores
@@ -57,7 +57,7 @@ public class UI_Main : UI_Scene
 
         BindEvent(GetButton((int)Buttons.ToDeployButton).gameObject, (PointerEventData) => OnDeployMode());
         BindEvent(GetButton((int)Buttons.ToOptionButton).gameObject, (PointerEventData) => Managers.UI.ShowPopup<UI_Option>());
-        BindEvent(GetButton((int)Buttons.ToGachaButton).gameObject, (PointerEventData) => Managers.UI.ShowPopup<UI_Gacha>());
+        //BindEvent(GetButton((int)Buttons.ToGachaButton).gameObject, (PointerEventData) => Managers.UI.ShowPopup<UI_Gacha>());
 
         Refresh();
     }

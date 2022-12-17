@@ -8,6 +8,7 @@ public class GameData : ScriptableObject
 {
     [SerializeField] private Character _player;
     public Character Player { get { return _player; } }
+    public List<Secretary> MyScretary = new List<Secretary>();
 
     private DateTime _date = new DateTime(2024, 6, 1);
     [SerializeField] private int _passedTurn;
