@@ -29,6 +29,10 @@ public class UI_Battle : UI_Scene
         CandidatePanel.transform.localPosition = Vector2.zero;
         _destPos = CandidatePanel.transform.localPosition;
         _destPos += new Vector2(-850, 0);
+
+        // 우승 시
+        if (_battleController.GetWinner() == Managers.Data.Player)
+            Managers.Data.GameData.Prize += 10;
     }
 
     void Update()

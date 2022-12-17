@@ -9,6 +9,7 @@ public class UI_Start : UI_Scene
     enum Buttons
     {
         Start,
+        Employ,
         Option,
         Exit,
     }
@@ -18,6 +19,7 @@ public class UI_Start : UI_Scene
         Bind<Button>(typeof(Buttons));
 
         BindEvent(GetButton((int)Buttons.Start).gameObject, (PointerEventData) => Managers.Scene.LoadScene(Define.Scene.Main));
+        BindEvent(GetButton((int)Buttons.Employ).gameObject, (PointerEventData) => Managers.UI.ShowPopup<UI_Gacha>());
         BindEvent(GetButton((int)Buttons.Option).gameObject, (PointerEventData) => Managers.UI.ShowPopup<UI_Option>());
         BindEvent(GetButton((int)Buttons.Exit).gameObject, (PointerEventData) => ExitGame());
     }

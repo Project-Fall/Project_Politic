@@ -8,6 +8,7 @@ public class GameData : ScriptableObject
 {
     [SerializeField] private Character _player;
     public Character Player { get { return _player; } }
+    public List<Secretary> MyScretary = new List<Secretary>();
 
     private DateTime _date = new DateTime(2024, 6, 1);
     [SerializeField] private int _passedTurn;
@@ -29,7 +30,9 @@ public class GameData : ScriptableObject
     [SerializeField] private int _money;
     public int GetMoney() { return _money; }
     public int AddMoney(int value) { return _money += value; }
-    public int SubMoney(int value) { return _money -= value; }
+
+    [SerializeField] private int _prizeMoney;
+    public int Prize { get { return _prizeMoney; } set { _prizeMoney = value; } }
 
     [SerializeField] private int _stress;
     public int Stress { get { return _stress; } }

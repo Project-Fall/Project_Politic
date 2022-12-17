@@ -15,7 +15,7 @@ public class UI_Main : UI_Scene
         SympathyUpButton,
         ToDeployButton,
         ToOptionButton,
-        ToGachaButton,
+        SecretaryButton,
     }
 
     enum Scores
@@ -57,7 +57,7 @@ public class UI_Main : UI_Scene
 
         BindEvent(GetButton((int)Buttons.ToDeployButton).gameObject, (PointerEventData) => OnDeployMode());
         BindEvent(GetButton((int)Buttons.ToOptionButton).gameObject, (PointerEventData) => Managers.UI.ShowPopup<UI_Option>());
-        BindEvent(GetButton((int)Buttons.ToGachaButton).gameObject, (PointerEventData) => Managers.UI.ShowPopup<UI_Gacha>());
+        BindEvent(GetButton((int)Buttons.SecretaryButton).gameObject, (PointerEventData) => Managers.UI.ShowPopup<UI_MySecretary>());
 
         Refresh();
     }
@@ -89,7 +89,7 @@ public class UI_Main : UI_Scene
             Managers.Data.GameData.SetStress(20);
 
         Managers.Data.GameData.SetDate(1);
-        Managers.Data.GameData.AddMoney(UnityEngine.Random.Range(1, 10));
+        Managers.Data.GameData.AddMoney(UnityEngine.Random.Range(Managers.Data.GameData.Prize, Managers.Data.GameData.Prize + 10));
 
         Refresh();
 

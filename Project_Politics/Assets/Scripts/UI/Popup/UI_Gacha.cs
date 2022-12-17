@@ -28,7 +28,7 @@ public class UI_Gacha : UI_Popup
     {
         GetObject((int)Objects.Resume).SetActive(false);
         GetObject((int)Objects.GachaButton).SetActive(false);
-        GetObject((int)Objects.Back).GetComponent<Button>().interactable = false;
+        GetObject((int)Objects.Back).SetActive(false);
         GetObject((int)Objects.EnvelopImage).SetActive(true);
         GetObject((int)Objects.White).SetActive(true);
         GetComponent<Animator>().SetTrigger("Open");
@@ -40,7 +40,7 @@ public class UI_Gacha : UI_Popup
         GetComponent<Animator>().SetTrigger("Exit");
 
         yield return new WaitForSeconds(0.2f);
-        GetObject((int)Objects.Back).GetComponent<Button>().interactable = true;
+        GetObject((int)Objects.Back).SetActive(true);
         GetObject((int)Objects.GachaButton).SetActive(true);
     }
 
