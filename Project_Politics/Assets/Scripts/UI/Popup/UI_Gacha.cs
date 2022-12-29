@@ -73,6 +73,7 @@ public class UI_Gacha : UI_Popup
         image.GetComponent<Animator>().runtimeAnimatorController = newSec.Motion;
         image.GetComponent<Image>().sprite = image.GetComponent<SpriteRenderer>().sprite;
         Util.FindChild(resume, "Name").GetComponent<Text>().text = newSec.Name;
+        Util.FindChild(resume, "Stats").GetComponent<Text>().text = MakeStatText(newSec);
     }
 
     private void SetMoneyText(int money = 0)
@@ -92,5 +93,18 @@ public class UI_Gacha : UI_Popup
             GetObject((int)Objects.GachaButton).GetComponent<Button>().interactable = true;
             return true;
         }
+    }
+
+    private string MakeStatText(Secretary secretary)
+    {
+        string text = "";
+        for(int i = 0; i<secretary.Stat.Length; i++)
+        {
+            if(secretary.Stat[i] != 0)
+            {
+                text += $"{Enum.GetName(typeof(Define.StatKor), i)} : {secretary.Stat[i]}\n";
+            }
+        }
+        return text;
     }
 }
