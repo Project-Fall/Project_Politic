@@ -26,6 +26,7 @@ public class UI_Gacha : UI_Popup
 
     private IEnumerator Gacha()
     {
+        SetResume();
         GetObject((int)Objects.Resume).SetActive(false);
         GetObject((int)Objects.GachaButton).SetActive(false);
         GetObject((int)Objects.Back).SetActive(false);
@@ -44,8 +45,19 @@ public class UI_Gacha : UI_Popup
         GetObject((int)Objects.GachaButton).SetActive(true);
     }
 
-    private void GetNewSecretary()
+    private Secretary GetNewSecretary()
     {
+        return Managers.Data.Secretarys[UnityEngine.Random.Range(0, Managers.Data.Secretarys.Count)];
+    }
 
+    private void SetResume()
+    {
+        Secretary newSec = GetNewSecretary();
+        Managers.Data.GameData.AddSecretary(newSec);
+        GameObject resume = GetObject((int)Objects.Resume);
+        GameObject image = Util.FindChild(resume, "Image");
+        image.GetComponent<Animator>().runtimeAnimatorController = newSec.Motion;
+        image.GetComponent<Image>().sprite = image.GetComponent<SpriteRenderer>().sprite;
+        Util.FindChild(resume, "Name").GetComponent<Text>().text = newSec.Name;
     }
 }
