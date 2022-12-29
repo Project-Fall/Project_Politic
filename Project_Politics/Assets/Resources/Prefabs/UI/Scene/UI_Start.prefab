@@ -419,7 +419,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2371023816795898426, guid: 3634ba7ca4211334e8e8b8e13c12e4cf, type: 3}
       propertyPath: m_Text
-      value: "\uACE0\uC6A9"
+      value: HIRE
       objectReference: {fileID: 0}
     - target: {fileID: 4620583075889018433, guid: 3634ba7ca4211334e8e8b8e13c12e4cf, type: 3}
       propertyPath: m_AnchoredPosition.x

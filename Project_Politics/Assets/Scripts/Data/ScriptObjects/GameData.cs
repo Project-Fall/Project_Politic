@@ -29,14 +29,17 @@ public class GameData : ScriptableObject
 
     [SerializeField] private int _money;
     public int GetMoney() { return _money; }
-    public int AddMoney(int value) { return _money += value; }
+    public int SetMoney(int value) { return _money += value; }
 
     [SerializeField] private int _prizeMoney;
     public int Prize { get { return _prizeMoney; } set { _prizeMoney = value; } }
 
+    [SerializeField] private int _gold;
+    public int Gold { get { return _gold; } set { _gold = value; } }
+
     [SerializeField] private int _stress;
     public int Stress { get { return _stress; } }
-    public void SetStress(int value) { _stress += value; if (_stress > 100) _stress = 100; }
+    public void SetStress(int value) { _stress += value; if (_stress > 100) _stress = 100; else if (_stress < 0) _stress = 0; }
 
     public float BGMVolume = 1.0f;
     public float SEVolume = 1.0f;

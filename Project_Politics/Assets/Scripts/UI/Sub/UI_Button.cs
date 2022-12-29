@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UI_Button : UI_Base
+public class UI_Button : UI_Sub
 {
     [SerializeField] AudioClip ClickSE;
     [SerializeField] AudioClip HoverSE;

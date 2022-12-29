@@ -34,3 +34,14 @@ public class ScriptLoader : ILoader<string, List<Script>>
         return dic;
     }
 }
+
+[Serializable]
+public class Stat
+{
+    public int Charisma;
+    public int Professional;
+    public int Leadership;
+    public int Connection;
+    public int Sympathy;
+    public int Alpha;
+}

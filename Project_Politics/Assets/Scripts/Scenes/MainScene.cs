@@ -6,12 +6,14 @@ public class MainScene : BaseScene
 {
     public GameObject Work;
     public Secretary secretary;
+    public MainController Controller;
 
     protected override void Init()
     {
         base.Init();
 
         SceneType = Define.Scene.Main;
+        Controller = new MainController();
 
         Managers.UI.ShowScene<UI_Main>();
 

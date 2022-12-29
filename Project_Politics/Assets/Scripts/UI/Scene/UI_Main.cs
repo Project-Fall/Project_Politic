@@ -16,6 +16,7 @@ public class UI_Main : UI_Scene
         ToDeployButton,
         ToOptionButton,
         SecretaryButton,
+        //TestButton,
     }
 
     enum Scores
@@ -39,6 +40,14 @@ public class UI_Main : UI_Scene
     private MainController _mainController;
     private bool _deployMode = false;
 
+    private GameObject _statInfo;
+    private GameObject _deploy;
+    private GameObject _active;
+
+    //public GameObject main;
+    //public GameObject deploy;
+    //public GameObject active;
+
     private void Awake()
     {
         _mainController = new MainController();
@@ -55,11 +64,44 @@ public class UI_Main : UI_Scene
             BindEvent(GetButton(i).gameObject, action);
         }
 
-        BindEvent(GetButton((int)Buttons.ToDeployButton).gameObject, (PointerEventData) => OnDeployMode());
+        BindEvent(GetButton((int)Buttons.ToDeployButton).gameObject, (PointerEventData) => OnDeployModeWithoutAnim());
         BindEvent(GetButton((int)Buttons.ToOptionButton).gameObject, (PointerEventData) => Managers.UI.ShowPopup<UI_Option>());
         BindEvent(GetButton((int)Buttons.SecretaryButton).gameObject, (PointerEventData) => Managers.UI.ShowPopup<UI_MySecretary>());
 
+        _statInfo = Util.FindChild(gameObject, "UI_StatInfo");
+        _deploy = Util.FindChild(gameObject, "UI_Deploy");
+        _active = Util.FindChild(gameObject, "UI_IsActive");
+
+        Init();
+
+        //BindEvent(GetButton((int)Buttons.TestButton).gameObject, (PointerEventData) => ChangeUI(true));
+
         Refresh();
+    }
+
+    private void Init()
+    {
+        _deploy.SetActive(false);
+        _statInfo.SetActive(false);
+        _active.SetActive(true);
+        BindEvent(Util.FindChild(_active, "Rest", true), (PointerEventData) => OnRest());
+        BindEvent(Util.FindChild(_active, "Active", true), (PointerEventData) => OnActive());
+        if (Managers.Data.GameData.GetMoney() < 30)
+            Util.FindChild(_active, "Rest", true).GetComponent<Button>().interactable = false;
+    }
+
+    private void OnRest()
+    {
+        Managers.Data.GameData.SetStress(UnityEngine.Random.Range(2, 5) * -20);
+        Managers.Data.GameData.SetMoney(-30);
+        Managers.Data.GameData.SetDate(1);
+        Refresh();
+    }
+
+    private void OnActive()
+    {
+        _active.SetActive(false);
+        _statInfo.SetActive(true);
     }
 
     private void UpdateAllScore()
@@ -84,13 +126,19 @@ public class UI_Main : UI_Scene
         // 이벤트 발생, 결과 적용
         StartCoroutine(ShowEvent(eventData));
 
-        // 스트레스 적용 (인맥이 아닐 때)
-        if (!eventData.pointerClick.name.Equals(Enum.GetName(typeof(Buttons), Buttons.ConnectionUpButton)))
+        // 스트레스 적용 (인맥일 때)
+        if (eventData.pointerClick.name.Equals(Enum.GetName(typeof(Buttons), Buttons.ConnectionUpButton)))
+        {
+            Managers.Data.GameData.SetStress(-10);
+            Managers.Data.GameData.SetMoney(-10);
+        }   
+        else
+        {
             Managers.Data.GameData.SetStress(20);
+            Managers.Data.GameData.SetMoney(UnityEngine.Random.Range(Managers.Data.GameData.Prize, Managers.Data.GameData.Prize + 10));
+        }
 
         Managers.Data.GameData.SetDate(1);
-        Managers.Data.GameData.AddMoney(UnityEngine.Random.Range(Managers.Data.GameData.Prize, Managers.Data.GameData.Prize + 10));
-
         Refresh();
 
         //잠깐동안 버튼 이용 불가
@@ -155,6 +203,8 @@ public class UI_Main : UI_Scene
         GetObject((int)Infos.Stress).GetComponent<Text>().text = $"스트레스 : {Managers.Data.GameData.Stress}";
 
         GetObject((int)Infos.Position).GetComponent<Text>().text = $"직책 : {Managers.Data.Player.Position}";
+
+        Init();
     }
 
     public void OnDeployMode()
@@ -169,6 +219,24 @@ public class UI_Main : UI_Scene
         {
             GetButton((int)Buttons.ToDeployButton).image.color = Color.white;
             GetComponent<Animator>().Play("Deploy Off");
+            _deployMode = false;
+        }
+    }
+
+    public void OnDeployModeWithoutAnim()
+    {
+        if (_deployMode == false)
+        {
+            GetButton((int)Buttons.ToDeployButton).image.color = Color.green;
+            _deploy.SetActive(true);
+            _statInfo.SetActive(false);
+            _deployMode = true;
+        }
+        else
+        {
+            GetButton((int)Buttons.ToDeployButton).image.color = Color.white;
+            _deploy.SetActive(false);
+            _statInfo.SetActive(true);
             _deployMode = false;
         }
     }

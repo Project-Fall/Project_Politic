@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI_SecretaryInfo : UI_Base
+public class UI_SecretaryInfo : UI_Sub
 {
     private Secretary _secretary;
 
