@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 [CreateAssetMenu(fileName = "ScriptableObjects", menuName = "ScriptableObject/Secretary")]
 public class Secretary : ScriptableObject
 {
@@ -11,6 +13,9 @@ public class Secretary : ScriptableObject
 
     [SerializeField] private int _level;
     public int Level { get { return _level; } set { _level = value; } }
+
+    [SerializeField] private int _count = 0;
+    public int Count { get { return _count; } set { _count = value; } }
 
     [SerializeField] private bool _used;
     public bool Used { get { return _used; } set { _used = value; } }

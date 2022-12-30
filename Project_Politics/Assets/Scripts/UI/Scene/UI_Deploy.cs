@@ -42,6 +42,7 @@ public class UI_Deploy : UI_Scene
             items.Add(item);
             GameObject go = Managers.Resource.Instantiate("UI/Item", GetObject(0).transform);
             go.GetComponent<Image>().sprite = item.image;
+            go.GetComponent<DeployItem>().Image = item.image;
         }
     }
 }

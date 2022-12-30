@@ -13,5 +13,9 @@ MonoBehaviour:
   m_Name: "\uC2EC\uADDC\uD6C8"
   m_EditorClassIdentifier: 
   _name: "\uC2EC\uADDC\uD6C8"
-  _stat: 0000000000000000000000000000000000000000
+  _level: 0
+  _count: 0
+  _used: 0
+  _salary: 0
+  _stat: 0200000003000000040000000500000006000000
   Motion: {fileID: 9100000, guid: afbf0197914187640aa7220cfaa608b6, type: 2}
