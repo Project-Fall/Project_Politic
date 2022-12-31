@@ -51,7 +51,7 @@ public class UI_Conversation : UI_Popup
         }
 
         // 이벤트 후 스탯 변화 출력
-        string result = MakeResultText();
+        var result = _event.GetResultText();
         if (result.Equals("") == false)
         {
             GetObject((int)Objects.Name).SetActive(false);
@@ -77,20 +77,4 @@ public class UI_Conversation : UI_Popup
         co_typing = null;
     }
 
-    private string MakeResultText()
-    {
-        string result = new string("");
-        for(int i=0; i<_event.Stat.Length; i++)
-        {
-            if (_event.Stat[i] == 0)
-                continue;
-
-            if(_event.Stat[i] > 0)
-                result += $"{Enum.GetName(typeof(Define.StatKor), i)}이(가) {_event.Stat[i]} 증가했습니다.\n";
-            else
-                result += $"{Enum.GetName(typeof(Define.StatKor), i)}이(가) {-_event.Stat[i]} 감소했습니다.\n";
-        }
-
-        return result;
-    }
 }
