@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9f1be8815cac1f540a3e11005b3561a7
+guid: 1319f516b482e74478b2d0c6cbe830fa
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -129,13 +129,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\uC5F0\uC124bbackbback\uB9E8 1_0"
+      name: speech_background3-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 100
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,20 +143,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b037ffa5c2f89a43b1cecaac2bc6d50
-      internalID: 1635404214
+      spriteID: 7bb1732fa3f9b5f4ba38207565bb4f7c
+      internalID: 965838920
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\uC5F0\uC124bbackbback\uB9E8 1_1"
+      name: speech_background3-Sheet_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 100
         y: 0
-        width: 32
-        height: 32
+        width: 100
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,20 +164,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ede6329d017a3f44c87269d7fe6b21c6
-      internalID: -80869307
+      spriteID: cf05cf3ce895b7e4baac8e33077921e0
+      internalID: 2119674829
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\uC5F0\uC124bbackbback\uB9E8 1_2"
+      name: speech_background3-Sheet_2
       rect:
         serializedVersion: 2
-        x: 64
+        x: 200
         y: 0
-        width: 32
-        height: 32
+        width: 100
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -185,20 +185,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 08f3fffbd7d576a488071596f8412863
-      internalID: 1336775826
+      spriteID: ba51253772ff3464d9dba01e940f5b97
+      internalID: -664421448
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\uC5F0\uC124bbackbback\uB9E8 1_3"
+      name: speech_background3-Sheet_3
       rect:
         serializedVersion: 2
-        x: 96
+        x: 300
         y: 0
-        width: 32
-        height: 32
+        width: 100
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,20 +206,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 329b835c488054449abb669f0bf9bb14
-      internalID: -543270202
+      spriteID: cbb52476d2000284a824d46b15dadda6
+      internalID: 791229482
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\uC5F0\uC124bbackbback\uB9E8 1_4"
+      name: speech_background3-Sheet_4
       rect:
         serializedVersion: 2
-        x: 128
+        x: 400
         y: 0
-        width: 32
-        height: 32
+        width: 100
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -227,20 +227,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dff5046c88bcde54ca9cf794a46825b6
-      internalID: -653963977
+      spriteID: ed1cea8af0c9733489a96d658a0aef03
+      internalID: -482916127
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\uC5F0\uC124bbackbback\uB9E8 1_5"
+      name: speech_background3-Sheet_5
       rect:
         serializedVersion: 2
-        x: 160
+        x: 500
         y: 0
-        width: 32
-        height: 32
+        width: 100
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -248,20 +248,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0593ac19be3ee6b48952a4f15b813f1a
-      internalID: 1344826446
+      spriteID: b19dbd15683ff0a4b9ec896795ca5bc7
+      internalID: -1578585505
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\uC5F0\uC124bbackbback\uB9E8 1_6"
+      name: speech_background3-Sheet_6
       rect:
         serializedVersion: 2
-        x: 192
+        x: 600
         y: 0
-        width: 32
-        height: 32
+        width: 100
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -269,8 +269,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ef2a38c7f9dd5bc49be087b78849ce6f
-      internalID: -221824284
+      spriteID: e461131718b29ce47a0e25d29139cfcd
+      internalID: 571855397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: speech_background3-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 0
+        width: 100
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85e7e0d303211a74b9e4c03b3a173b3e
+      internalID: 29340084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: speech_background3-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0
+        width: 100
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a205badf4cac49c489e07e4c84c794f5
+      internalID: -362004234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: speech_background3-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 0
+        width: 100
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c280ad9eea0380a4886b8159ca3209dd
+      internalID: -1347201578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: speech_background3-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 0
+        width: 100
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd0a486ff63dbef44a933c9a58aec0c0
+      internalID: -561134591
       vertices: []
       indices: 
       edges: []
@@ -286,13 +370,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      "\uC5F0\uC124bbackbback\uB9E8 1_1": -80869307
-      "\uC5F0\uC124bbackbback\uB9E8 1_6": -221824284
-      "\uC5F0\uC124bbackbback\uB9E8 1_5": 1344826446
-      "\uC5F0\uC124bbackbback\uB9E8 1_4": -653963977
-      "\uC5F0\uC124bbackbback\uB9E8 1_2": 1336775826
-      "\uC5F0\uC124bbackbback\uB9E8 1_0": 1635404214
-      "\uC5F0\uC124bbackbback\uB9E8 1_3": -543270202
+      speech_background3-Sheet_10: -561134591
+      speech_background3-Sheet_7: 29340084
+      speech_background3-Sheet_2: -664421448
+      speech_background3-Sheet_4: -482916127
+      speech_background3-Sheet_6: 571855397
+      speech_background3-Sheet_3: 791229482
+      speech_background3-Sheet_1: 2119674829
+      speech_background3-Sheet_5: -1578585505
+      speech_background3-Sheet_9: -1347201578
+      speech_background3-Sheet_0: 965838920
+      speech_background3-Sheet_8: -362004234
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
