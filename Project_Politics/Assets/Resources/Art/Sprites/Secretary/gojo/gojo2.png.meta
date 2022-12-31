@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9f1be8815cac1f540a3e11005b3561a7
+guid: d2e6ad69dba6fdf45ac1a14b1fcde12a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 40
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -129,13 +129,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\uC5F0\uC124bbackbback\uB9E8 1_0"
+      name: gojo2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 32
-        height: 32
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,20 +143,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b037ffa5c2f89a43b1cecaac2bc6d50
-      internalID: 1635404214
+      spriteID: 74ea123aaa7e46443a01ec09ba604519
+      internalID: 1886063597
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\uC5F0\uC124bbackbback\uB9E8 1_1"
+      name: gojo2_1
       rect:
         serializedVersion: 2
         x: 32
         y: 0
         width: 32
-        height: 32
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,20 +164,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ede6329d017a3f44c87269d7fe6b21c6
-      internalID: -80869307
+      spriteID: 5778ad60b777a624082d7b7a6cdd324a
+      internalID: -247666980
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\uC5F0\uC124bbackbback\uB9E8 1_2"
+      name: gojo2_2
       rect:
         serializedVersion: 2
         x: 64
         y: 0
         width: 32
-        height: 32
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -185,20 +185,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 08f3fffbd7d576a488071596f8412863
-      internalID: 1336775826
+      spriteID: 9fc69de518c57b044ad2011525c31dd6
+      internalID: -1967572638
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\uC5F0\uC124bbackbback\uB9E8 1_3"
+      name: gojo2_3
       rect:
         serializedVersion: 2
         x: 96
         y: 0
         width: 32
-        height: 32
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,20 +206,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 329b835c488054449abb669f0bf9bb14
-      internalID: -543270202
+      spriteID: d7f4c069429a22f4b82aa9c2650a96c9
+      internalID: 1955036412
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\uC5F0\uC124bbackbback\uB9E8 1_4"
+      name: gojo2_4
       rect:
         serializedVersion: 2
         x: 128
         y: 0
         width: 32
-        height: 32
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -227,50 +227,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dff5046c88bcde54ca9cf794a46825b6
-      internalID: -653963977
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\uC5F0\uC124bbackbback\uB9E8 1_5"
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0593ac19be3ee6b48952a4f15b813f1a
-      internalID: 1344826446
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\uC5F0\uC124bbackbback\uB9E8 1_6"
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ef2a38c7f9dd5bc49be087b78849ce6f
-      internalID: -221824284
+      spriteID: 6e410a740f0d6e54883e72f1d3b68799
+      internalID: 1689489867
       vertices: []
       indices: 
       edges: []
@@ -286,13 +244,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      "\uC5F0\uC124bbackbback\uB9E8 1_1": -80869307
-      "\uC5F0\uC124bbackbback\uB9E8 1_6": -221824284
-      "\uC5F0\uC124bbackbback\uB9E8 1_5": 1344826446
-      "\uC5F0\uC124bbackbback\uB9E8 1_4": -653963977
-      "\uC5F0\uC124bbackbback\uB9E8 1_2": 1336775826
-      "\uC5F0\uC124bbackbback\uB9E8 1_0": 1635404214
-      "\uC5F0\uC124bbackbback\uB9E8 1_3": -543270202
+      gojo2_2: -1967572638
+      gojo2_3: 1955036412
+      gojo2_0: 1886063597
+      gojo2_1: -247666980
+      gojo2_4: 1689489867
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

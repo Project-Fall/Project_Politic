@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9f1be8815cac1f540a3e11005b3561a7
+guid: 559bf4446b12ee148878139dddc4d775
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -129,7 +129,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\uC5F0\uC124bbackbback\uB9E8 1_0"
+      name: "\uC228\uC26C\uB294 \uAE30\uC6D0\uC528_0"
       rect:
         serializedVersion: 2
         x: 0
@@ -143,14 +143,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b037ffa5c2f89a43b1cecaac2bc6d50
-      internalID: 1635404214
+      spriteID: 28f55c94c7727394e8ca8f01d9720aa3
+      internalID: -365915331
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\uC5F0\uC124bbackbback\uB9E8 1_1"
+      name: "\uC228\uC26C\uB294 \uAE30\uC6D0\uC528_1"
       rect:
         serializedVersion: 2
         x: 32
@@ -164,113 +164,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ede6329d017a3f44c87269d7fe6b21c6
-      internalID: -80869307
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\uC5F0\uC124bbackbback\uB9E8 1_2"
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 08f3fffbd7d576a488071596f8412863
-      internalID: 1336775826
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\uC5F0\uC124bbackbback\uB9E8 1_3"
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 329b835c488054449abb669f0bf9bb14
-      internalID: -543270202
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\uC5F0\uC124bbackbback\uB9E8 1_4"
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dff5046c88bcde54ca9cf794a46825b6
-      internalID: -653963977
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\uC5F0\uC124bbackbback\uB9E8 1_5"
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0593ac19be3ee6b48952a4f15b813f1a
-      internalID: 1344826446
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\uC5F0\uC124bbackbback\uB9E8 1_6"
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ef2a38c7f9dd5bc49be087b78849ce6f
-      internalID: -221824284
+      spriteID: 7666502ea670db34789ad1828d97ffca
+      internalID: 379693066
       vertices: []
       indices: 
       edges: []
@@ -286,13 +181,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      "\uC5F0\uC124bbackbback\uB9E8 1_1": -80869307
-      "\uC5F0\uC124bbackbback\uB9E8 1_6": -221824284
-      "\uC5F0\uC124bbackbback\uB9E8 1_5": 1344826446
-      "\uC5F0\uC124bbackbback\uB9E8 1_4": -653963977
-      "\uC5F0\uC124bbackbback\uB9E8 1_2": 1336775826
-      "\uC5F0\uC124bbackbback\uB9E8 1_0": 1635404214
-      "\uC5F0\uC124bbackbback\uB9E8 1_3": -543270202
+      "\uC228\uC26C\uB294 \uAE30\uC6D0\uC528_1": 379693066
+      "\uC228\uC26C\uB294 \uAE30\uC6D0\uC528_0": -365915331
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
