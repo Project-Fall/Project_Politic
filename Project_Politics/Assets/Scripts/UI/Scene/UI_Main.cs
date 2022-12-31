@@ -88,6 +88,8 @@ public class UI_Main : UI_Scene
         BindEvent(Util.FindChild(_active, "Active", true), (PointerEventData) => OnActive());
         if (Managers.Data.GameData.GetMoney() < 30)
             Util.FindChild(_active, "Rest", true).GetComponent<Button>().interactable = false;
+        else
+            Util.FindChild(_active, "Rest", true).GetComponent<Button>().interactable = true;
     }
 
     private void OnRest()
