@@ -8,7 +8,13 @@ public class GameData : ScriptableObject
 {
     [SerializeField] private Character _player;
     public Character Player { get { return _player; } }
-    public List<Secretary> MyScretary = new List<Secretary>();
+    public List<Secretary> MySecretary = new List<Secretary>();
+    public void AddSecretary(Secretary secretary)
+    {
+        if (MySecretary.Contains(secretary) == false)
+            MySecretary.Add(secretary);
+        secretary.Count++;
+    }
 
     private DateTime _date = new DateTime(2024, 6, 1);
     [SerializeField] private int _passedTurn;
