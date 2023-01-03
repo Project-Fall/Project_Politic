@@ -16,7 +16,6 @@ public class UI_Main : UI_Scene
         ToDeployButton,
         ToOptionButton,
         SecretaryButton,
-        //TestButton,
     }
 
     enum Scores
@@ -35,18 +34,13 @@ public class UI_Main : UI_Scene
         Money,
         Stress,
         Position,
+        Scrollbar,
+        Active,
+        Rest,
     }
 
     private MainController _mainController;
     private bool _deployMode = false;
-
-    private GameObject _statInfo;
-    private GameObject _deploy;
-    private GameObject _active;
-
-    //public GameObject main;
-    //public GameObject deploy;
-    //public GameObject active;
 
     private void Awake()
     {
@@ -68,10 +62,6 @@ public class UI_Main : UI_Scene
         BindEvent(GetButton((int)Buttons.ToOptionButton).gameObject, (PointerEventData) => Managers.UI.ShowPopup<UI_Option>());
         BindEvent(GetButton((int)Buttons.SecretaryButton).gameObject, (PointerEventData) => Managers.UI.ShowPopup<UI_MySecretary>());
 
-        _statInfo = Util.FindChild(gameObject, "UI_StatInfo");
-        _deploy = Util.FindChild(gameObject, "UI_Deploy");
-        _active = Util.FindChild(gameObject, "UI_IsActive");
-
         Init();
 
         //BindEvent(GetButton((int)Buttons.TestButton).gameObject, (PointerEventData) => ChangeUI(true));
@@ -81,15 +71,13 @@ public class UI_Main : UI_Scene
 
     private void Init()
     {
-        _deploy.SetActive(false);
-        _statInfo.SetActive(false);
-        _active.SetActive(true);
-        BindEvent(Util.FindChild(_active, "Rest", true), (PointerEventData) => OnRest());
-        BindEvent(Util.FindChild(_active, "Active", true), (PointerEventData) => OnActive());
+        GetObject((int)Infos.Scrollbar).GetComponent<Scrollbar>().value = 1;
+        BindEvent(GetObject((int)Infos.Rest), (PointerEventData) => OnRest());
+        BindEvent(GetObject((int)Infos.Active), (PointerEventData) => OnActive());
         if (Managers.Data.GameData.GetMoney() < 30)
-            Util.FindChild(_active, "Rest", true).GetComponent<Button>().interactable = false;
+            GetObject((int)Infos.Rest).GetComponent<Button>().interactable = false;
         else
-            Util.FindChild(_active, "Rest", true).GetComponent<Button>().interactable = true;
+            GetObject((int)Infos.Rest).GetComponent<Button>().interactable = true;
     }
 
     private void OnRest()
@@ -102,8 +90,17 @@ public class UI_Main : UI_Scene
 
     private void OnActive()
     {
-        _active.SetActive(false);
-        _statInfo.SetActive(true);
+        StartCoroutine(MoveScrollbar());
+    }
+
+    private IEnumerator MoveScrollbar()
+    {
+        Scrollbar scrollbar = GetObject((int)Infos.Scrollbar).GetComponent<Scrollbar>();
+        while(scrollbar.value > 0)
+        {
+            scrollbar.value -= 0.1f;
+            yield return null;
+        }
     }
 
     private void UpdateAllScore()
@@ -230,15 +227,15 @@ public class UI_Main : UI_Scene
         if (_deployMode == false)
         {
             GetButton((int)Buttons.ToDeployButton).image.color = Color.green;
-            _deploy.SetActive(true);
-            _statInfo.SetActive(false);
+            //_deploy.SetActive(true);
+            //_statInfo.SetActive(false);
             _deployMode = true;
         }
         else
         {
             GetButton((int)Buttons.ToDeployButton).image.color = Color.white;
-            _deploy.SetActive(false);
-            _statInfo.SetActive(true);
+            //_deploy.SetActive(false);
+            //_statInfo.SetActive(true);
             _deployMode = false;
         }
     }
