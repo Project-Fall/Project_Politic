@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -147,31 +148,38 @@ public class UI_Main : UI_Scene
 
     private IEnumerator ShowEvent(PointerEventData eventData)
     {
-        Event evt = null;
+        List<Event> evts = new List<Event>();
         switch (eventData.pointerClick.name)
         {
             case "CharismaUpButton":
-                evt = Managers.Data.Events[0];
+                evts.Add(Managers.Data.Events[0]);
                 break;
             case "ProfessionalUpButton":
-                evt = Managers.Data.Events[1];
+                evts.Add(Managers.Data.Events[1]);
                 break;
             case "LeadershipUpButton":
-                evt = Managers.Data.Events[2];
+                evts.Add(Managers.Data.Events[2]);
                 break;
             case "ConnectionUpButton":
-                evt = Managers.Data.Events[3];
+                evts.Add(Managers.Data.Events[3]);
                 break;
             case "SympathyUpButton":
-                evt = Managers.Data.Events[4];
+                evts.Add(Managers.Data.Events[4]);
                 break;
         }
-        UI_Event ui_evt = Managers.UI.ShowPopup<UI_Event>();
-        ui_evt.Init(evt);
-        for (int i = 0; i < evt.Stat.Length; i++)
-            Managers.Data.Player.Stat[i] += evt.Stat[i];
 
-        yield return new WaitUntil(() => ui_evt.isEnd);
+        if (UnityEngine.Random.Range(0, 1f) > 0.5f)
+            evts.Add(Managers.Data.Events[5]);
+
+        foreach(Event evt in evts)
+        {
+            UI_Event ui_evt = Managers.UI.ShowPopup<UI_Event>();
+            ui_evt.Init(evt);
+            for (int i = 0; i < evt.Stat.Length; i++)
+                Managers.Data.Player.Stat[i] += evt.Stat[i];
+
+            yield return new WaitUntil(() => ui_evt.isEnd);
+        }
 
         // 선거 전 달 입후보 여부 질문
         if (_mainController.IsCandidacyDay())
