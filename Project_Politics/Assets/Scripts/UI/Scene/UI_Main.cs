@@ -37,6 +37,7 @@ public class UI_Main : UI_Scene
         Scrollbar,
         Active,
         Rest,
+        FadeOut,
     }
 
     private MainController _mainController;
@@ -85,7 +86,7 @@ public class UI_Main : UI_Scene
         Managers.Data.GameData.SetStress(UnityEngine.Random.Range(2, 5) * -20);
         Managers.Data.GameData.SetMoney(-30);
         Managers.Data.GameData.SetDate(1);
-        Refresh();
+        StartCoroutine(RestFadeOut());
     }
 
     private void OnActive()
@@ -238,5 +239,25 @@ public class UI_Main : UI_Scene
             //_statInfo.SetActive(true);
             _deployMode = false;
         }
+    }
+
+    private IEnumerator RestFadeOut()
+    {
+        Image image = GetObject((int)Infos.FadeOut).GetComponent<Image>();
+        image.raycastTarget = true;
+        Color color = image.color;
+        while(image.color.a < 1f)
+        {
+            color.a += 0.2f;
+            image.color = color;
+            yield return new WaitForSeconds(0.5f);
+        }
+
+        Refresh();
+        yield return new WaitForSeconds(0.5f);
+
+        color.a = 0;
+        image.color = color;
+        image.raycastTarget = false;
     }
 }
