@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -16,7 +17,6 @@ public class UI_Main : UI_Scene
         ToDeployButton,
         ToOptionButton,
         SecretaryButton,
-        //TestButton,
     }
 
     enum Scores
@@ -35,18 +35,14 @@ public class UI_Main : UI_Scene
         Money,
         Stress,
         Position,
+        Scrollbar,
+        Active,
+        Rest,
+        FadeOut,
     }
 
     private MainController _mainController;
     private bool _deployMode = false;
-
-    private GameObject _statInfo;
-    private GameObject _deploy;
-    private GameObject _active;
-
-    //public GameObject main;
-    //public GameObject deploy;
-    //public GameObject active;
 
     private void Awake()
     {
@@ -68,10 +64,6 @@ public class UI_Main : UI_Scene
         BindEvent(GetButton((int)Buttons.ToOptionButton).gameObject, (PointerEventData) => Managers.UI.ShowPopup<UI_Option>());
         BindEvent(GetButton((int)Buttons.SecretaryButton).gameObject, (PointerEventData) => Managers.UI.ShowPopup<UI_MySecretary>());
 
-        _statInfo = Util.FindChild(gameObject, "UI_StatInfo");
-        _deploy = Util.FindChild(gameObject, "UI_Deploy");
-        _active = Util.FindChild(gameObject, "UI_IsActive");
-
         Init();
 
         //BindEvent(GetButton((int)Buttons.TestButton).gameObject, (PointerEventData) => ChangeUI(true));
@@ -81,13 +73,13 @@ public class UI_Main : UI_Scene
 
     private void Init()
     {
-        _deploy.SetActive(false);
-        _statInfo.SetActive(false);
-        _active.SetActive(true);
-        BindEvent(Util.FindChild(_active, "Rest", true), (PointerEventData) => OnRest());
-        BindEvent(Util.FindChild(_active, "Active", true), (PointerEventData) => OnActive());
+        GetObject((int)Infos.Scrollbar).GetComponent<Scrollbar>().value = 1;
+        BindEvent(GetObject((int)Infos.Rest), (PointerEventData) => OnRest());
+        BindEvent(GetObject((int)Infos.Active), (PointerEventData) => OnActive());
         if (Managers.Data.GameData.GetMoney() < 30)
-            Util.FindChild(_active, "Rest", true).GetComponent<Button>().interactable = false;
+            GetObject((int)Infos.Rest).GetComponent<Button>().interactable = false;
+        else
+            GetObject((int)Infos.Rest).GetComponent<Button>().interactable = true;
     }
 
     private void OnRest()
@@ -95,13 +87,22 @@ public class UI_Main : UI_Scene
         Managers.Data.GameData.SetStress(UnityEngine.Random.Range(2, 5) * -20);
         Managers.Data.GameData.SetMoney(-30);
         Managers.Data.GameData.SetDate(1);
-        Refresh();
+        StartCoroutine(RestFadeOut());
     }
 
     private void OnActive()
     {
-        _active.SetActive(false);
-        _statInfo.SetActive(true);
+        StartCoroutine(MoveScrollbar());
+    }
+
+    private IEnumerator MoveScrollbar()
+    {
+        Scrollbar scrollbar = GetObject((int)Infos.Scrollbar).GetComponent<Scrollbar>();
+        while(scrollbar.value > 0)
+        {
+            scrollbar.value -= 0.1f;
+            yield return null;
+        }
     }
 
     private void UpdateAllScore()
@@ -147,31 +148,38 @@ public class UI_Main : UI_Scene
 
     private IEnumerator ShowEvent(PointerEventData eventData)
     {
-        Event evt = null;
+        List<Event> evts = new List<Event>();
         switch (eventData.pointerClick.name)
         {
             case "CharismaUpButton":
-                evt = Managers.Data.Events[0];
+                evts.Add(Managers.Data.Events[0]);
                 break;
             case "ProfessionalUpButton":
-                evt = Managers.Data.Events[1];
+                evts.Add(Managers.Data.Events[1]);
                 break;
             case "LeadershipUpButton":
-                evt = Managers.Data.Events[2];
+                evts.Add(Managers.Data.Events[2]);
                 break;
             case "ConnectionUpButton":
-                evt = Managers.Data.Events[3];
+                evts.Add(Managers.Data.Events[3]);
                 break;
             case "SympathyUpButton":
-                evt = Managers.Data.Events[4];
+                evts.Add(Managers.Data.Events[4]);
                 break;
         }
-        UI_Event ui_evt = Managers.UI.ShowPopup<UI_Event>();
-        ui_evt.Init(evt);
-        for (int i = 0; i < evt.Stat.Length; i++)
-            Managers.Data.Player.Stat[i] += evt.Stat[i];
 
-        yield return new WaitUntil(() => ui_evt.isEnd);
+        if (UnityEngine.Random.Range(0, 1f) > 0.5f)
+            evts.Add(Managers.Data.Events[5]);
+
+        foreach(Event evt in evts)
+        {
+            UI_Event ui_evt = Managers.UI.ShowPopup<UI_Event>();
+            ui_evt.Init(evt);
+            for (int i = 0; i < evt.Stat.Length; i++)
+                Managers.Data.Player.Stat[i] += evt.Stat[i];
+
+            yield return new WaitUntil(() => ui_evt.isEnd);
+        }
 
         // 선거 전 달 입후보 여부 질문
         if (_mainController.IsCandidacyDay())
@@ -228,16 +236,36 @@ public class UI_Main : UI_Scene
         if (_deployMode == false)
         {
             GetButton((int)Buttons.ToDeployButton).image.color = Color.green;
-            _deploy.SetActive(true);
-            _statInfo.SetActive(false);
+            //_deploy.SetActive(true);
+            //_statInfo.SetActive(false);
             _deployMode = true;
         }
         else
         {
             GetButton((int)Buttons.ToDeployButton).image.color = Color.white;
-            _deploy.SetActive(false);
-            _statInfo.SetActive(true);
+            //_deploy.SetActive(false);
+            //_statInfo.SetActive(true);
             _deployMode = false;
         }
+    }
+
+    private IEnumerator RestFadeOut()
+    {
+        Image image = GetObject((int)Infos.FadeOut).GetComponent<Image>();
+        image.raycastTarget = true;
+        Color color = image.color;
+        while(image.color.a < 1f)
+        {
+            color.a += 0.2f;
+            image.color = color;
+            yield return new WaitForSeconds(0.5f);
+        }
+
+        Refresh();
+        yield return new WaitForSeconds(0.5f);
+
+        color.a = 0;
+        image.color = color;
+        image.raycastTarget = false;
     }
 }

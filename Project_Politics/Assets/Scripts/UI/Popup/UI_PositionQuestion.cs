@@ -26,6 +26,7 @@ public class UI_PositionQuestion : UI_Popup
 
     private void OnClickAutonomy()
     {
-        gameObject.SetActive(false);
+        Managers.UI.ClosePopup();
+        Managers.UI.ShowPopup<UI_Campain>();
     }
 }

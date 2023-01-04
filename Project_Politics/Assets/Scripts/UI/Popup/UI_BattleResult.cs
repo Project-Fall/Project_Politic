@@ -54,7 +54,8 @@ public class UI_BattleResult : UI_Popup
         ShowWinner();
         yield return new WaitForSeconds(1f);
 
-        GetObject((int)Objects.ReturnButton).SetActive(true);
+        if(_battleController.GetWinner() == Managers.Data.Player)
+            GetObject((int)Objects.ReturnButton).SetActive(true);
     }
 
     public void ShowWinner()
@@ -65,5 +66,8 @@ public class UI_BattleResult : UI_Popup
             GetObject((int)Objects.RightImage).SetActive(true);
 
         GetObject((int)Objects.WinnerName).SetActive(true);
+
+        if (_battleController.GetWinner() != Managers.Data.Player)
+            Managers.UI.ShowPopup<UI_Failure>();
     }
 }

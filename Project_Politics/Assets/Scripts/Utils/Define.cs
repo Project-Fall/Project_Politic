@@ -43,4 +43,13 @@ public class Define
         기초자치단체,
         백수,
     }
+
+    public enum Stat
+    {
+        Charisma,
+        Professional,
+        Leadership,
+        Connection,
+        Sympathy,
+    }
 }

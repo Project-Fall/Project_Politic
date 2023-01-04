@@ -49,4 +49,14 @@ public class GameData : ScriptableObject
 
     public float BGMVolume = 1.0f;
     public float SEVolume = 1.0f;
+
+    public void Reset()
+    {
+        MySecretary = new List<Secretary>();
+        _date = new DateTime(2024, 6, 1);
+        SetDate(-PassedTurn);
+        SetMoney(-GetMoney());
+        Prize = 0;
+        SetStress(-Stress);
+    }
 }
