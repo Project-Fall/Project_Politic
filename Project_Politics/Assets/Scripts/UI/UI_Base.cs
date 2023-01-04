@@ -12,21 +12,22 @@ public class UI_Base : MonoBehaviour
 {
     protected Dictionary<Type, UnityEngine.Object[]> _objects = new Dictionary<Type, UnityEngine.Object[]>();
 
-    protected void Bind<T>(Type type) where T : UnityEngine.Object
+    protected void Bind<T>(Type type, GameObject parent = null) where T : UnityEngine.Object
     {
-        // 현재 이름이 Enum 타입으로 넘어올 때만 가능함 (수정 예정)
         string[] names = Enum.GetNames(type);
         UnityEngine.Object[] objects = new UnityEngine.Object[names.Length];
         _objects.Add(typeof(T), objects);
 
+        if (parent == null)
+            parent = gameObject;
+
         for(int i=0; i<names.Length; i++)
         {
             if (typeof(T) == typeof(GameObject))
-                objects[i] = Util.FindChild(gameObject, names[i], true);
+                objects[i] = Util.FindChild(parent, names[i], true);
             else
-                objects[i] = Util.FindChild<T>(gameObject, names[i], true);
+                objects[i] = Util.FindChild<T>(parent, names[i], true);
 
-            // 찾지 못하면 오류 메세지
             if (objects[i] == null)
                 Debug.Log($"Failed to Bind ({names[i]})");
         }
@@ -36,7 +37,6 @@ public class UI_Base : MonoBehaviour
     {
         UnityEngine.Object[] objects = null;
 
-        // 실패 시
         if (_objects.TryGetValue(typeof(T), out objects) == false)
             return null;
 
@@ -56,6 +56,11 @@ public class UI_Base : MonoBehaviour
             case Define.UIEvent.Click:
                 evt.OnPointClickHandler -= action;
                 evt.OnPointClickHandler += action;
+                break;
+
+            case Define.UIEvent.Hover:
+                evt.OnPointEnterHandler -= action;
+                evt.OnPointEnterHandler += action;
                 break;
         }
     }

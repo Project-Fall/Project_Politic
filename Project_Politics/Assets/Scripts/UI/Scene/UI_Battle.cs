@@ -1,0 +1,61 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
+
+public class UI_Battle : UI_Scene
+{
+    // 지금은 만들어놓고 가지고 오지만 나중에는 후보자 수만큼 생성하는 방식으로 바꿀 것 같음
+    public GameObject CandidatePanel;
+    [SerializeField] public int Speed = 1800;
+
+    [SerializeField] Character[] Candidates;
+    private int _moveCount = 0;
+    private Vector2 _destPos;
+    private bool _move = false;
+    private GameObject _resultPanel;
+    private BattleController _battleController;
+
+    void Start()
+    {
+        _battleController = Managers.Scene.CurrentScene.GetComponent<BattleScene>().battleController;
+        // 후보들을 가지고 옴 (씬으로부터)
+        Candidates = _battleController.Candidates;
+        Util.FindChild<UI_CandidateInfo>(CandidatePanel, "Candidate 1").Candidate = _battleController.Candidates[0];
+        Util.FindChild<UI_CandidateInfo>(CandidatePanel, "Candidate 2").Candidate = _battleController.Candidates[1];
+
+        // 위치 초기화
+        CandidatePanel.transform.localPosition = Vector2.zero;
+        _destPos = CandidatePanel.transform.localPosition;
+        _destPos += new Vector2(-850, 0);
+
+        // 우승 시
+        if (_battleController.GetWinner() == Managers.Data.Player)
+            Managers.Data.GameData.Prize += 10;
+    }
+
+    void Update()
+    {
+        if (_move)
+        {
+            CandidatePanel.transform.localPosition = Vector2.MoveTowards(CandidatePanel.transform.localPosition, _destPos, Speed * Time.deltaTime);
+            if(CandidatePanel.transform.localPosition.Equals(_destPos))
+            {
+                _move = false;
+                _destPos += new Vector2(-850, 0);
+                _moveCount++;
+            }
+        }
+        // 클릭 시 움직임 (후보자 수만큼 움직이면 더 안 움직임)
+        if (Managers.Input.Click && _moveCount < Candidates.Length)
+            _move = true;
+
+        // 후보자 수만큼 움직이면 결과창 띄움
+        if (_moveCount == Candidates.Length)
+        {
+            Managers.UI.ShowPopup<UI_BattleResult>();
+            _moveCount++;
+        }
+    }
+}

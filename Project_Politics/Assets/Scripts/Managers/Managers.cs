@@ -13,20 +13,44 @@ public class Managers : MonoBehaviour
     private UIManager _ui = new UIManager();
     public static UIManager UI { get { return Instance._ui; } }
 
+    private SceneManagerEX _scene = new SceneManagerEX();
+    public static SceneManagerEX Scene { get { return Instance._scene; } }
+
+    private SoundManager _sound = new SoundManager();
+    public static SoundManager Sound { get { return Instance._sound; } }
+    
+    private DataManager _data = new DataManager();
+    public static DataManager Data { get { return Instance._data; } }
+
+    private InputManager _input = new InputManager();
+    public static InputManager Input { get { return Instance._input; } }
+
+
+
+
     private static void Init()
     {
         if(s_instance == null)
         {
-            GameObject go = GameObject.Find("GameManager");
+            GameObject go = GameObject.Find("@GameManager");
             
             if(go == null)
             {
-                go = new GameObject("GameManager");
+                go = new GameObject("@GameManager");
                 go.AddComponent<Managers>();
             }
 
             //DontDestroyOnLoad(go);
             s_instance = go.GetComponent<Managers>();
+
+            s_instance._data.Init();
+            s_instance._sound.Init();
+            s_instance.data();
         }
+    }
+
+    private void data()
+    {
+        gameObject.GetOrAddComponent<DataViewer>();
     }
 }
